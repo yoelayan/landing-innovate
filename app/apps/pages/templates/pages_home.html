@@ -1,0 +1,446 @@
+
+{% extends 'layout/master.html' %}
+{% load static %}
+{% block title %}Inicio - Innova7e{% endblock %}
+
+{% block content %}
+<section id="hero" class="text-center text-white bg-dark py-5">
+    <div class="container">
+        <h1 class="display-4">Potencia tu negocio y destaca en el mundo digital</h1>
+        <p class="lead">Descubre cómo nuestros servicios pueden llevar tu negocio al siguiente nivel.</p>
+        <a href="#services" class="btn btn-primary btn-lg">Conócenos</a>
+    </div>
+</section>
+
+<section id="services-benefits" class="py-5">
+    <div class="container">
+        <!-- Primera fila: Servicios -->
+        <div class="row text-center mb-5">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-bullseye fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">Análisis y Objetivos</h5>
+                        <p class="card-text">
+                            Realizamos un diagnóstico integral para definir metas claras, enfocadas en impulsar tu negocio y maximizar resultados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-check-circle fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">Estrategia e Implementación</h5>
+                        <p class="card-text">
+                            Diseñamos un plan de acción personalizado y lo ejecutamos de forma eficiente, priorizando cada tarea según su impacto.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title fw-bold">Medición y Optimización</h5>
+                        <p class="card-text">
+                            Analizamos los resultados para ajustar la estrategia, promoviendo una mejora continua y un mayor retorno de inversión.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Título central -->
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">PROTEGE TUS INVERSIONES CON PRECISIÓN ABSOLUTA.</h2>
+            <p class="text-muted">
+                Nuestro equipo experto te ofrece asesoría personalizada, ayudándote a impulsar tu negocio con confianza.
+            </p>
+        </div>
+
+        <!-- Segunda fila: Beneficios -->
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="{% static 'images/astronaut1.png' %}" class="card-img-top" alt="Genera más rentabilidad">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Genera más rentabilidad</h5>
+                        <p class="card-text">
+                            Creamos estrategias orientadas a optimizar tus recursos y aumentar tus ingresos de manera sostenible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="{% static 'images/astronaut2.png' %}" class="card-img-top" alt="Aumenta tu presencia">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Aumenta tu presencia</h5>
+                        <p class="card-text">
+                            Fortalecemos tu imagen de marca y alcance digital, logrando que tu negocio destaque ante la competencia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="{% static 'images/astronaut3.png' %}" class="card-img-top" alt="Trabajamos codo a codo contigo">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Trabajamos codo a codo contigo</h5>
+                        <p class="card-text">
+                            Brindándote atención personalizada y soluciones diseñadas a tu medida.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="benefits" class="py-5 text-white" style="background-color: #2c2c54;">
+    <div class="container text-center">
+        <!-- Título principal -->
+        <h2 class="fw-bold mb-3">AHORRA TIEMPO Y DINERO CON NOSOTROS.</h2>
+        <p class="mb-5">
+            Empieza a fortalecer tu presencia en el mercado y cuenta con el respaldo de nuestro equipo especializado.
+        </p>
+
+        <!-- Cuadrícula de beneficios -->
+        <div class="row">
+            <!-- Beneficio 1 -->
+            <div class="col-md-3 mb-4">
+                <div class="d-flex flex-column align-items-center">
+                    <i class="fas fa-clock fa-3x mb-3"></i>
+                    <h5 class="fw-bold">Acceso a soporte personalizado</h5>
+                    <p class="text-center">
+                        Atendemos tus consultas y necesidades en cualquier momento, asegurando una respuesta rápida y efectiva.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Beneficio 2 -->
+            <div class="col-md-3 mb-4">
+                <div class="d-flex flex-column align-items-center">
+                    <i class="fas fa-handshake fa-3x mb-3"></i>
+                    <h5 class="fw-bold">Consultoría Especializada</h5>
+                    <p class="text-center">
+                        Analizamos tu modelo de negocio en detalle y diseñamos soluciones a la medida para cada desafío que enfrentes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Beneficio 3 -->
+            <div class="col-md-3 mb-4">
+                <div class="d-flex flex-column align-items-center">
+                    <i class="fas fa-bolt fa-3x mb-3"></i>
+                    <h5 class="fw-bold">Procesos Eficientes</h5>
+                    <p class="text-center">
+                        Optimizamos tus procesos para maximizar la productividad y garantizar resultados efectivos.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Beneficio 4 -->
+            <div class="col-md-3 mb-4">
+                <div class="d-flex flex-column align-items-center">
+                    <i class="fas fa-puzzle-piece fa-3x mb-3"></i>
+                    <h5 class="fw-bold">Recursos Óptimos</h5>
+                    <p class="text-center">
+                        Aprovechamos tecnología y metodologías efectivas, evitando costos innecesarios.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="services" class="py-5">
+    <div class="container">
+        <!-- Marketing Digital -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <h2 class="fw-bold">MARKETING DIGITAL</h2>
+                <p>Prospecta tu imagen y comercializa tus productos.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-instagram fa-lg text-primary me-2"></i>
+                        <strong>Gestión de Marca:</strong> Potencia la reputación de tu negocio aplicando estrategias que refuercen su presencia e impacto en el mercado.
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-video fa-lg text-primary me-2"></i>
+                        <strong>Video Marketing:</strong> Conecta con tu audiencia de forma auténtica a través de contenidos audiovisuales cautivadores que cuentan tu historia.
+                    </li>
+                    <li>
+                        <i class="fas fa-paint-brush fa-lg text-primary me-2"></i>
+                        <strong>Branding:</strong> Diseña la esencia de tu negocio al crear valores, identidad visual y voz propia, logrando una conexión emocional con tu público.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{% static 'images/marketing_digital.png' %}" alt="Marketing Digital" class="img-fluid">
+            </div>
+        </div>
+
+        <!-- Desarrollo Web -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6 order-md-2">
+                <h2 class="fw-bold">DESARROLLO WEB</h2>
+                <p>Prospecta tu imagen y comercializa tus productos.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-globe fa-lg text-primary me-2"></i>
+                        <strong>Páginas Web:</strong> Brinda a tu negocio un escaparate digital atractivo y funcional para captar clientes las 24 horas del día.
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-server fa-lg text-primary me-2"></i>
+                        <strong>Hosting y Dominio:</strong> Asegura tu espacio en línea con un nombre memorable y un servicio confiable que mantenga tu sitio siempre activo.
+                    </li>
+                    <li>
+                        <i class="fas fa-desktop fa-lg text-primary me-2"></i>
+                        <strong>Diseño UI - UX:</strong> Crea interfaces fáciles de usar y agradables a la vista, para una experiencia de navegación que tus visitantes recordarán.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6 order-md-1 text-center">
+                <img src="{% static 'images/desarrollo_web.png' %}" alt="Desarrollo Web" class="img-fluid">
+            </div>
+        </div>
+
+        <!-- Diseño Gráfico -->
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="fw-bold">DISEÑO GRÁFICO</h2>
+                <p>Prospecta tu imagen y comercializa tus productos.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-palette fa-lg text-primary me-2"></i>
+                        <strong>Desarrollo de Identidad:</strong> Plasma la personalidad de tu negocio en logotipos y elementos visuales que destaquen y conecten con tu audiencia.
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-file-alt fa-lg text-primary me-2"></i>
+                        <strong>Papelería Corporativa:</strong> Diseñamos tarjetas de presentación, sobres y otros elementos que transmitan profesionalismo.
+                    </li>
+                    <li>
+                        <i class="fas fa-print fa-lg text-primary me-2"></i>
+                        <strong>Gigantografía:</strong> Maximiza tu visibilidad con impresiones de gran formato que capten la atención de todos a gran distancia.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{% static 'images/diseno_grafico.png' %}" alt="Diseño Gráfico" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="testimonials-faqs" class="py-5">
+    <div class="container">
+        <!-- Testimonios -->
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">TESTIMONIOS</h2>
+            <p class="text-muted">Clientes satisfechos con nuestras soluciones.</p>
+        </div>
+        <div class="row">
+            <!-- Testimonio 1 -->
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <h5 class="card-title">Review title</h5>
+                        <p class="card-text">Review body</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="{% static 'images/reviewer.png' %}" alt="Reviewer" class="rounded-circle me-2" width="40">
+                            <div>
+                                <p class="mb-0">Reviewer name</p>
+                                <small class="text-muted">Date</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonio 2 -->
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <h5 class="card-title">Review title</h5>
+                        <p class="card-text">Review body</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="{% static 'images/reviewer.png' %}" alt="Reviewer" class="rounded-circle me-2" width="40">
+                            <div>
+                                <p class="mb-0">Reviewer name</p>
+                                <small class="text-muted">Date</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonio 3 -->
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <h5 class="card-title">Review title</h5>
+                        <p class="card-text">Review body</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="{% static 'images/reviewer.png' %}" alt="Reviewer" class="rounded-circle me-2" width="40">
+                            <div>
+                                <p class="mb-0">Reviewer name</p>
+                                <small class="text-muted">Date</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonio 4 -->
+            <div class="col-md-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <h5 class="card-title">Review title</h5>
+                        <p class="card-text">Review body</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="{% static 'images/reviewer.png' %}" alt="Reviewer" class="rounded-circle me-2" width="40">
+                            <div>
+                                <p class="mb-0">Reviewer name</p>
+                                <small class="text-muted">Date</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preguntas Frecuentes -->
+        <div class="text-center mt-5 mb-4">
+            <h2 class="fw-bold">PREGUNTAS FRECUENTES</h2>
+            <p class="text-muted">Busca a través de estos FAQs para encontrar la respuesta a preguntas comunes.</p>
+        </div>
+        <div class="accordion" id="faqAccordion">
+            <!-- Pregunta 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                        ¿Qué precios manejan?
+                    </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Nuestros precios varían según el servicio. Contáctanos para obtener una cotización personalizada.
+                    </div>
+                </div>
+            </div>
+            <!-- Pregunta 2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        ¿Cuánto tiempo toma un proyecto?
+                    </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        El tiempo depende de la complejidad del proyecto. Por lo general, los proyectos pequeños toman entre 2 y 4 semanas.
+                    </div>
+                </div>
+            </div>
+            <!-- Pregunta 3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        ¿Ofrecen soporte técnico?
+                    </button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Sí, ofrecemos soporte técnico continuo para garantizar el correcto funcionamiento de nuestros servicios.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Título -->
+            <div class="col-12 text-center mb-4">
+                <h2 class="fw-bold">CONTACTANOS</h2>
+                <p class="text-muted">Trabajemos juntos</p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Imagen y datos de contacto -->
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="{% static 'images/astronaut.png' %}" alt="Astronauta trabajando" class="card-img-top rounded">
+                    <div class="card-body text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fas fa-envelope fa-2x text-primary me-2"></i>
+                            <p class="mb-0">example@email.com</p>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center mt-2">
+                            <i class="fas fa-envelope fa-2x text-primary me-2"></i>
+                            <p class="mb-0">example@email.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de contacto -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm p-4">
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Escribe Aquí..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Escribe Aquí..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="service" class="form-label">Servicio Interesado</label>
+                            <select class="form-select" id="service" name="service" required>
+                                <option value="" disabled selected>Selecciona</option>
+                                <option value="marketing">Marketing Digital</option>
+                                <option value="web">Desarrollo Web</option>
+                                <option value="design">Diseño Gráfico</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Escribe Aquí..." required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary w-100">Solicitar Servicio</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
