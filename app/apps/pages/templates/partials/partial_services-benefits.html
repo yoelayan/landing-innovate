@@ -1,0 +1,67 @@
+
+{% load static %}
+<section id="services-benefits" class="py-5">
+    <div class="container">
+        <!-- Primera fila: Servicios -->
+        <div class="row text-center mb-5">
+            {% for service in features %}
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas {{service.card_icon}} fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title fw-bold">{{service.card_title}}</h5>
+                            <p class="card-text">
+                                {{service.card_text}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Título central -->
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">PROTEGE TUS INVERSIONES CON PRECISIÓN ABSOLUTA.</h2>
+            <p class="text-muted">
+                Nuestro equipo experto te ofrece asesoría personalizada, ayudándote a impulsar tu negocio con confianza.
+            </p>
+        </div>
+
+        <!-- Segunda fila: Beneficios -->
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="{% static 'images/astronaut1.png' %}" class="card-img-top" alt="Genera más rentabilidad">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Genera más rentabilidad</h5>
+                        <p class="card-text">
+                            Creamos estrategias orientadas a optimizar tus recursos y aumentar tus ingresos de manera sostenible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="{% static 'images/astronaut2.png' %}" class="card-img-top" alt="Aumenta tu presencia">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Aumenta tu presencia</h5>
+                        <p class="card-text">
+                            Fortalecemos tu imagen de marca y alcance digital, logrando que tu negocio destaque ante la competencia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="{% static 'images/astronaut3.png' %}" class="card-img-top" alt="Trabajamos codo a codo contigo">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Trabajamos codo a codo contigo</h5>
+                        <p class="card-text">
+                            Brindándote atención personalizada y soluciones diseñadas a tu medida.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

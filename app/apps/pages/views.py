@@ -81,23 +81,23 @@ class HomePageView(TemplateView):
         }
         contact_form = MessagesForm()
 
-        # ? Icons Tabler -> https://tabler.io/icons
+        # ? Icons FontAwesome -> https://fontawesome.com/icons
         features = [
             {
                 "extra_classes": "text-center shadow",
-                "card_icon": "target-arrow",
+                "card_icon": "fa-bullseye",
                 "card_title": "Análisis y Objetivos",
                 "card_text": "Realizamos un diagnóstico integral para definir metas claras, enfocadas en impulsar tu negocio y maximizar resultados.",
             },
             {
                 "extra_classes": "text-center shadow",
-                "card_icon": "checklist",
+                "card_icon": "fa-check-circle",
                 "card_title": "Estrategia e Implementación",
                 "card_text": "Diseñamos un plan de acción personalizado y lo ejecutamos de forma eficiente, priorizando cada tarea según su impacto.",
             },
             {
                 "extra_classes": "text-center shadow",
-                "card_icon": "chart-bar",
+                "card_icon": "fa-chart-line",
                 "card_title": "Medición y Optimización",
                 "card_text": "Analizamos los resultados para ajustar la estrategia, promoviendo una mejora continua y un mayor retorno de inversión.",
             },
