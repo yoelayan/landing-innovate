@@ -14,9 +14,6 @@ Refer to pages/urls.py file for more pages.
 """
 
 
-
-
-
 def suscriptor_process_form(request):
     if request.method == "POST":
 
@@ -38,7 +35,6 @@ class HomePageView(TemplateView):
         form = MessagesForm(request.POST)
         if form.is_valid():
             messages.success(request, "Mensaje enviado correctamente")
-
             form.save()
         else:
 
@@ -50,14 +46,24 @@ class HomePageView(TemplateView):
             )
         return self.get(request, *args, **kwargs)
 
+    
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
+
     def get_context_data(self, **kwargs):
         # A function to init the global layout. It is defined in web_project/__init__.py file
         context = super().get_context_data(**kwargs)
+
+        # Conexiones con externos
         integrations_footer = Integration.objects.filter(ubication="footer")
         integrations_head = Integration.objects.filter(ubication="head")
 
         brands = Brand.objects.all()
-        format_brands = [{"src": brand.logo.url, "alt": brand.name} for brand in brands]
+        format_brands = [
+            {"src": brand.logo.url, "alt": brand.name} for brand in brands
+        ]
         footer_description = "Somos una agencia de marketing digital, desarrollo web y diseño gráfico. <br> ¡Contáctanos y descubre cómo podemos ayudarte a alcanzar tus metas!"
         images = SiteImages.objects.all()
         hero_image = images.filter(code="hero").first()
@@ -276,7 +282,3 @@ class HomePageView(TemplateView):
         )
 
         return context
-
-    def get(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-        return self.render_to_response(context)
