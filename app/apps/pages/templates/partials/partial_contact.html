@@ -1,0 +1,62 @@
+<section id="contact" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Título -->
+            <div class="col-12 text-center mb-4">
+                <h2 class="fw-bold">CONTACTANOS</h2>
+                <p class="text-muted">Trabajemos juntos</p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Imagen y datos de contacto -->
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <img src="" alt="Astronauta trabajando" class="card-img-top rounded">
+                    <div class="card-body text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fas fa-envelope fa-2x text-primary me-2"></i>
+                            <p class="mb-0">example@email.com</p>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center mt-2">
+                            <i class="fas fa-envelope fa-2x text-primary me-2"></i>
+                            <p class="mb-0">example@email.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de contacto -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm p-4">
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Escribe Aquí..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Escribe Aquí..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="service" class="form-label">Servicio Interesado</label>
+                            <select class="form-select" id="service" name="service" required>
+                                <option value="" disabled selected>Selecciona</option>
+                                <option value="marketing">Marketing Digital</option>
+                                <option value="web">Desarrollo Web</option>
+                                <option value="design">Diseño Gráfico</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Escribe Aquí..." required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary w-100">Solicitar Servicio</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
