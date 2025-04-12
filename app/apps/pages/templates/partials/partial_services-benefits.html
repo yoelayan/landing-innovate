@@ -29,39 +29,17 @@
 
         <!-- Segunda fila: Beneficios -->
         <div class="row text-center">
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="{% static 'images/astronaut1.png' %}" class="card-img-top" alt="Genera más rentabilidad">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Genera más rentabilidad</h5>
-                        <p class="card-text">
-                            Creamos estrategias orientadas a optimizar tus recursos y aumentar tus ingresos de manera sostenible.
-                        </p>
+            {% for feature in features_2 %}
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm">
+                        <img src="{{ feature.card_image }}" class="card-img-top" alt="{{ feature.card_title }}">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">{{ feature.card_title }}</h5>
+                            <p class="card-text">
+                                {{ feature.card_text }}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="{% static 'images/astronaut2.png' %}" class="card-img-top" alt="Aumenta tu presencia">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Aumenta tu presencia</h5>
-                        <p class="card-text">
-                            Fortalecemos tu imagen de marca y alcance digital, logrando que tu negocio destaque ante la competencia.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="{% static 'images/astronaut3.png' %}" class="card-img-top" alt="Trabajamos codo a codo contigo">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Trabajamos codo a codo contigo</h5>
-                        <p class="card-text">
-                            Brindándote atención personalizada y soluciones diseñadas a tu medida.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
-    </div>
-</section>

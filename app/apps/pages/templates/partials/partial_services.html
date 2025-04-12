@@ -1,78 +1,60 @@
 <section id="services" class="py-5">
+        <!-- marketin digital-->
     <div class="container">
-        <!-- Marketing Digital -->
         <div class="row align-items-center mb-5">
             <div class="col-md-6">
-                <h2 class="fw-bold">MARKETING DIGITAL</h2>
-                <p>Prospecta tu imagen y comercializa tus productos.</p>
+                <h2 class="fw-bold, display-2">{{ services_1.title|upper }}</h2>
+                <p class="display-3">{{ services_1.subtitle }}</p>
                 <ul class="list-unstyled">
-                    <li class="mb-3">
-                        <i class="fas fa-instagram fa-lg text-primary me-2"></i>
-                        <strong>Gestión de Marca:</strong> Potencia la reputación de tu negocio aplicando estrategias que refuercen su presencia e impacto en el mercado.
-                    </li>
-                    <li class="mb-3">
-                        <i class="fas fa-video fa-lg text-primary me-2"></i>
-                        <strong>Video Marketing:</strong> Conecta con tu audiencia de forma auténtica a través de contenidos audiovisuales cautivadores que cuentan tu historia.
-                    </li>
-                    <li>
-                        <i class="fas fa-paint-brush fa-lg text-primary me-2"></i>
-                        <strong>Branding:</strong> Diseña la esencia de tu negocio al crear valores, identidad visual y voz propia, logrando una conexión emocional con tu público.
-                    </li>
+                    {% for card in services_1.cards %}
+                        <li class="mb-3">
+                            <i class="fas fa-{{ card.card_icon }} fa-lg text-primary me-2"></i>
+                            <strong>{{ card.card_title }}:</strong> {{ card.card_text }}
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-md-6 text-center">
-                <img src="" alt="Marketing Digital" class="img-fluid">
+                <img src="" alt="{{ services_1.title }}" class="img-fluid">
             </div>
         </div>
+    </div>
+</section>
 
         <!-- Desarrollo Web -->
         <div class="row align-items-center mb-5">
             <div class="col-md-6 order-md-2">
-                <h2 class="fw-bold">DESARROLLO WEB</h2>
-                <p>Prospecta tu imagen y comercializa tus productos.</p>
+                <h2 class="fw-bold, display-2">{{ services_2.title|upper }}</h2>
+                <p class="display-3">{{ services_2.subtitle }}</p>
                 <ul class="list-unstyled">
-                    <li class="mb-3">
-                        <i class="fas fa-globe fa-lg text-primary me-2"></i>
-                        <strong>Páginas Web:</strong> Brinda a tu negocio un escaparate digital atractivo y funcional para captar clientes las 24 horas del día.
-                    </li>
-                    <li class="mb-3">
-                        <i class="fas fa-server fa-lg text-primary me-2"></i>
-                        <strong>Hosting y Dominio:</strong> Asegura tu espacio en línea con un nombre memorable y un servicio confiable que mantenga tu sitio siempre activo.
-                    </li>
-                    <li>
-                        <i class="fas fa-desktop fa-lg text-primary me-2"></i>
-                        <strong>Diseño UI - UX:</strong> Crea interfaces fáciles de usar y agradables a la vista, para una experiencia de navegación que tus visitantes recordarán.
-                    </li>
+                    {% for card in services_2.cards %}
+                        <li class="mb-3">
+                            <i class="fas fa-{{ card.card_icon }} fa-lg text-primary me-2"></i>
+                            <strong>{{ card.card_title }}:</strong> {{ card.card_text }}
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-md-6 order-md-1 text-center">
-                <img src="" alt="Desarrollo Web" class="img-fluid">
+                <img src="" alt="{{ services_2.title }}" class="img-fluid">
             </div>
         </div>
 
         <!-- Diseño Gráfico -->
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h2 class="fw-bold">DISEÑO GRÁFICO</h2>
-                <p>Prospecta tu imagen y comercializa tus productos.</p>
+                <h2 class="fw-bold, display-2">{{ services_3.title|upper }}</h2>
+                <p class="display-3">{{ services_3.subtitle }}</p>
                 <ul class="list-unstyled">
-                    <li class="mb-3">
-                        <i class="fas fa-palette fa-lg text-primary me-2"></i>
-                        <strong>Desarrollo de Identidad:</strong> Plasma la personalidad de tu negocio en logotipos y elementos visuales que destaquen y conecten con tu audiencia.
-                    </li>
-                    <li class="mb-3">
-                        <i class="fas fa-file-alt fa-lg text-primary me-2"></i>
-                        <strong>Papelería Corporativa:</strong> Diseñamos tarjetas de presentación, sobres y otros elementos que transmitan profesionalismo.
-                    </li>
-                    <li>
-                        <i class="fas fa-print fa-lg text-primary me-2"></i>
-                        <strong>Gigantografía:</strong> Maximiza tu visibilidad con impresiones de gran formato que capten la atención de todos a gran distancia.
-                    </li>
+                    {% for card in services_3.cards %}
+                        <li class="mb-3">
+                            <i class="fas fa-{{ card.card_icon }} fa-lg text-primary me-2"></i>
+                            <strong>{{ card.card_title }}:</strong> {{ card.card_text }}
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-md-6 text-center">
-                <img src="" alt="Diseño Gráfico" class="img-fluid">
+                <img src="" alt="{{ services_3.title }}" class="img-fluid">
             </div>
         </div>
-    </div>
-</section>

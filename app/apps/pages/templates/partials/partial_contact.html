@@ -8,22 +8,24 @@
             </div>
         </div>
         <div class="row">
-            <!-- Imagen y datos de contacto -->
-            <div class="col-md-6 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="" alt="Astronauta trabajando" class="card-img-top rounded">
-                    <div class="card-body text-center">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <i class="fas fa-envelope fa-2x text-primary me-2"></i>
-                            <p class="mb-0">example@email.com</p>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center mt-2">
-                            <i class="fas fa-envelope fa-2x text-primary me-2"></i>
-                            <p class="mb-0">example@email.com</p>
+            {% for _ in contact_info_list %}
+                <div class="col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm">
+                        <img src="{{ contact_image.image.url }}" alt="Astronauta trabajando" class="card-img-top rounded">
+                        <div class="card-body text-center">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <i class="fas fa-envelope fa-2x text-primary me-2"></i>
+                                <p class="mb-0">{{ contact_info.email }}</p>
+                            </div>
+                            <div class="d-flex justify-content-center align-items-center mt-2">
+                                <i class="fas fa-phone fa-2x text-primary me-2"></i>
+                                <p class="mb-0">{{ contact_info.phone }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
+        </div>
 
             <!-- Formulario de contacto -->
             <div class="col-md-6">
