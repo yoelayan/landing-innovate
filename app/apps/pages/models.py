@@ -78,3 +78,17 @@ class Testimonial(models.Model):
         verbose_name = "Testimonio"
         verbose_name_plural = "Testimonios"
         ordering = ["-created_at"]
+
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=255)
+    answer_text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.question_text
+
+    class Meta:
+        verbose_name = "Pregunta"
+        verbose_name_plural = "Preguntas"
+        ordering = ["-created_at"]
