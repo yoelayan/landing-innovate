@@ -13,9 +13,6 @@ body {
     max-height: 40px;
 }
 
-#hero {
-    background: linear-gradient(to right, var(--primary-color), #000);
-}
 
 .btn-primary {
     background-color: var(--primary-color);
@@ -123,4 +120,8 @@ footer a {
 
 footer a:hover {
     color: #4a90e2;
+}
+
+#landingHero {
+    z-index: 2;
 }
