@@ -1,7 +1,19 @@
-:root {
+@font-face {
+
+    font-family: "Helvetica LT Std Condensed";
+    src: url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.eot");
+    src: url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.svg#Helvetica LT Std Condensed") format("svg");
+  
+  }
+
+  :root {
     --primary-color: #4a4a8e;
     --secondary-color: #f4f4f4;
-    --font-family: 'Roboto', sans-serif;
+    --font-family: 'Roboto', sans-serif, 'Helvetica LT Std Condensed'
 }
 
 body {
