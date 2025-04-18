@@ -3,11 +3,11 @@
 {% block title %}Inicio - Innova7e{% endblock %}
 
 {% block content %}
-<section id="hero" class="text-center text-white py-5" style="background: linear-gradient(135deg, #3498db, #2c3e50);">
+<section id="hero" class="hero text-center text-white py-5">
     <div class="container">
-        <h1 class="display-3 fw-bold mb-3" style="font-family: sans-serif;">Potencia tu negocio y alcanza las estrellas</h1>
-        <p class="lead mb-4">Impulsa tu éxito digital con nuestros servicios innovadores.</p>
-        <a href="#services" class="btn btn-primary btn-lg rounded-pill"><i class="fas fa-rocket me-2"></i> ¡Conócenos!</a>
+        <h1 class="display-3 fw-bold mb-3 hero-title">Potencia tu negocio y alcanza las estrellas</h1>
+        <p class="lead mb-4 hero-subtitle">Impulsa tu éxito digital con nuestros servicios innovadores.</p>
+        <a href="#services" class="btn btn-primary btn-lg rounded-pill hero-button"><i class="fas fa-rocket me-2"></i> ¡Conócenos!</a>
     </div>
 </section>
 
@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100" style="border-radius: 15px; transition: transform 0.3s ease-in-out;">
+                <div class="card border-0 shadow-sm h-100 card-feature">
                     <div class="card-body">
                         <i class="fas fa-bullseye fa-3x text-success mb-3"></i>
                         <h5 class="card-title fw-bold">Análisis y Objetivos</h5>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100" style="border-radius: 15px; transition: transform 0.3s ease-in-out;">
+                <div class="card border-0 shadow-sm h-100 card-feature">
                     <div class="card-body">
                         <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
                         <h5 class="card-title fw-bold">Estrategia e Implementación</h5>
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card border-0 shadow-sm h-100" style="border-radius: 15px; transition: transform 0.3s ease-in-out;">
+                <div class="card border-0 shadow-sm h-100 card-feature">
                     <div class="card-body">
                         <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
                         <h5 class="card-title fw-bold">Medición y Optimización</h5>
@@ -50,15 +50,15 @@
         </div>
 
         <div class="text-center mb-5">
-            <h2 class="fw-bold text-primary">PROTEGE TUS INVERSIONES CON PRECISIÓN ABSOLUTA.</h2>
-            <p class="text-muted">
+            <h2 class="fw-bold text-primary section-title">PROTEGE TUS INVERSIONES CON PRECISIÓN ABSOLUTA.</h2>
+            <p class="text-muted section-subtitle">
                 Nuestro equipo experto te ofrece asesoría personalizada, ayudándote a impulsar tu negocio con confianza.
             </p>
         </div>
 
         <div class="row text-center">
             <div class="col-md-4">
-                <div class="card border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s ease-in-out;">
+                <div class="card border-0 shadow-sm card-image-benefit">
                     <img src="{% static 'images/astronaut1.png' %}" class="card-img-top rounded-top" alt="Genera más rentabilidad">
                     <div class="card-body">
                         <h5 class="card-title fw-bold text-info">Genera más rentabilidad</h5>
@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s ease-in-out;">
+                <div class="card border-0 shadow-sm card-image-benefit">
                     <img src="{% static 'images/astronaut2.png' %}" class="card-img-top rounded-top" alt="Aumenta tu presencia">
                     <div class="card-body">
                         <h5 class="card-title fw-bold text-info">Aumenta tu presencia</h5>
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s ease-in-out;">
+                <div class="card border-0 shadow-sm card-image-benefit">
                     <img src="{% static 'images/astronaut3.png' %}" class="card-img-top rounded-top" alt="Trabajamos codo a codo contigo">
                     <div class="card-body">
                         <h5 class="card-title fw-bold text-info">Trabajamos codo a codo contigo</h5>
@@ -93,16 +93,16 @@
         </div>
     </div>
 </section>
-<section id="benefits" class="py-5 text-white" style="background: linear-gradient(to right, #4a148c, #880e4f);">
+<section id="benefits" class="benefits py-5 text-white">
     <div class="container text-center">
-        <h2 class="fw-bold mb-3">AHORRA TIEMPO Y DINERO CON NOSOTROS.</h2>
-        <p class="mb-5">
+        <h2 class="fw-bold mb-3 section-title">AHORRA TIEMPO Y DINERO CON NOSOTROS.</h2>
+        <p class="mb-5 section-subtitle">
             Empieza a fortalecer tu presencia en el mercado y cuenta con el respaldo de nuestro equipo especializado.
         </p>
 
         <div class="row">
             <div class="col-md-3 mb-4">
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center benefit-item">
                     <i class="fas fa-clock fa-3x mb-3 text-warning"></i>
                     <h5 class="fw-bold">Acceso a soporte personalizado</h5>
                     <p class="text-center">
@@ -112,7 +112,7 @@
             </div>
 
             <div class="col-md-3 mb-4">
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center benefit-item">
                     <i class="fas fa-handshake fa-3x mb-3 text-warning"></i>
                     <h5 class="fw-bold">Consultoría Especializada</h5>
                     <p class="text-center">
@@ -122,7 +122,7 @@
             </div>
 
             <div class="col-md-3 mb-4">
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center benefit-item">
                     <i class="fas fa-bolt fa-3x mb-3 text-warning"></i>
                     <h5 class="fw-bold">Procesos Eficientes</h5>
                     <p class="text-center">
@@ -132,7 +132,7 @@
             </div>
 
             <div class="col-md-3 mb-4">
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center benefit-item">
                     <i class="fas fa-puzzle-piece fa-3x mb-3 text-warning"></i>
                     <h5 class="fw-bold">Recursos Óptimos</h5>
                     <p class="text-center">
@@ -145,47 +145,47 @@
 </section>
 <section id="services" class="py-5">
     <div class="container">
-        <div class="row align-items-center mb-5" style="background-color: #f9f9f9; padding: 30px; border-radius: 10px;">
-            <div class="col-md-6">
-                <h2 class="fw-bold text-primary">MARKETING DIGITAL</h2>
-                <p class="text-muted">Impulsa tu imagen y vende tus productos.</p>
-                <ul class="list-unstyled">
+        <div class="row align-items-center mb-5 service-row">
+            <div class="col-md-6 service-info">
+                <h2 class="fw-bold text-primary service-title">MARKETING DIGITAL</h2>
+                <p class="text-muted service-description">Impulsa tu imagen y vende tus productos.</p>
+                <ul class="list-unstyled service-list">
                     <li class="mb-3"><i class="fab fa-instagram fa-lg text-info me-2"></i> <strong>Gestión de Marca:</strong> Potencia la reputación de tu negocio aplicando estrategias que refuercen su presencia e impacto en el mercado.</li>
                     <li class="mb-3"><i class="fas fa-video fa-lg text-info me-2"></i> <strong>Video Marketing:</strong> Conecta con tu audiencia de forma auténtica a través de contenidos audiovisuales cautivadores que cuentan tu historia.</li>
                     <li><i class="fas fa-paint-brush fa-lg text-info me-2"></i> <strong>Branding:</strong> Diseña la esencia de tu negocio al crear valores, identidad visual y voz propia, logrando una conexión emocional con tu público.</li>
                 </ul>
             </div>
-            <div class="col-md-6 text-center">
+            <div class="col-md-6 text-center service-image">
                 <img src="{% static 'images/marketing_digital.png' %}" alt="Marketing Digital" class="img-fluid rounded shadow-sm">
             </div>
         </div>
 
-        <div class="row align-items-center mb-5" style="background-color: #e9ecef; padding: 30px; border-radius: 10px;">
-            <div class="col-md-6 order-md-2">
-                <h2 class="fw-bold text-success">DESARROLLO WEB</h2>
-                <p class="text-muted">Crea tu escaparate digital y llega a más clientes.</p>
-                <ul class="list-unstyled">
+        <div class="row align-items-center mb-5 service-row">
+            <div class="col-md-6 order-md-2 service-info">
+                <h2 class="fw-bold text-success service-title">DESARROLLO WEB</h2>
+                <p class="text-muted service-description">Crea tu escaparate digital y llega a más clientes.</p>
+                <ul class="list-unstyled service-list">
                     <li class="mb-3"><i class="fas fa-globe fa-lg text-warning me-2"></i> <strong>Páginas Web:</strong> Brinda a tu negocio un escaparate digital atractivo y funcional para captar clientes las 24 horas del día.</li>
                     <li class="mb-3"><i class="fas fa-server fa-lg text-warning me-2"></i> <strong>Hosting y Dominio:</strong> Asegura tu espacio en línea con un nombre memorable y un servicio confiable que mantenga tu sitio siempre activo.</li>
                     <li><i class="fas fa-desktop fa-lg text-warning me-2"></i> <strong>Diseño UI - UX:</strong> Crea interfaces fáciles de usar y agradables a la vista, para una experiencia de navegación que tus visitantes recordarán.</li>
                 </ul>
             </div>
-            <div class="col-md-6 order-md-1 text-center">
+            <div class="col-md-6 order-md-1 text-center service-image">
                 <img src="{% static 'images/desarrollo_web.png' %}" alt="Desarrollo Web" class="img-fluid rounded shadow-sm">
             </div>
         </div>
 
-        <div class="row align-items-center" style="background-color: #f9f9f9; padding: 30px; border-radius: 10px;">
-            <div class="col-md-6">
-                <h2 class="fw-bold text-info">DISEÑO GRÁFICO</h2>
-                <p class="text-muted">Comunica visualmente la identidad de tu marca.</p>
-                <ul class="list-unstyled">
+        <div class="row align-items-center service-row">
+            <div class="col-md-6 service-info">
+                <h2 class="fw-bold text-info service-title">DISEÑO GRÁFICO</h2>
+                <p class="text-muted service-description">Comunica visualmente la identidad de tu marca.</p>
+                <ul class="list-unstyled service-list">
                     <li class="mb-3"><i class="fas fa-palette fa-lg text-primary me-2"></i> <strong>Desarrollo de Identidad:</strong> Plasma la personalidad de tu negocio en logotipos y elementos visuales que destaquen y conecten con tu audiencia.</li>
                     <li class="mb-3"><i class="fas fa-file-alt fa-lg text-primary me-2"></i> <strong>Papelería Corporativa:</strong> Diseñamos tarjetas de presentación, sobres y otros elementos que transmitan profesionalismo.</li>
                     <li><i class="fas fa-print fa-lg text-primary me-2"></i> <strong>Gigantografía:</strong> Maximiza tu visibilidad con impresiones de gran formato que capten la atención de todos a gran distancia.</li>
                 </ul>
             </div>
-            <div class="col-md-6 text-center">
+            <div class="col-md-6 text-center service-image">
                 <img src="{% static 'images/diseno_grafico.png' %}" alt="Diseño Gráfico" class="img-fluid rounded shadow-sm">
             </div>
         </div>
@@ -194,12 +194,12 @@
 <section id="testimonials-faqs" class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="fw-bold text-primary">TESTIMONIOS</h2>
-            <p class="text-muted">Clientes felices con nuestros resultados.</p>
+            <h2 class="fw-bold text-primary section-title">TESTIMONIOS</h2>
+            <p class="text-muted section-subtitle">Clientes felices con nuestros resultados.</p>
         </div>
         <div class="row">
             <div class="col-md-3">
-                <div class="card shadow-sm border-primary" style="border-radius: 10px;">
+                <div class="card shadow-sm border-primary testimonial-card">
                     <div class="card-body text-center">
                         <div class="mb-2">
                             <i class="fas fa-star text-warning"></i>
@@ -216,7 +216,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card shadow-sm border-success" style="border-radius: 10px;">
+                <div class="card shadow-sm border-success testimonial-card">
                     <div class="card-body text-center">
                         <div class="mb-2">
                             <i class="fas fa-star text-warning"></i>
@@ -233,7 +233,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card shadow-sm border-info" style="border-radius: 10px;">
+                <div class="card shadow-sm border-info testimonial-card">
                     <div class="card-body text-center">
                         <div class="mb-2">
                             <i class="fas fa-star text-warning"></i>
@@ -249,7 +249,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card shadow-sm border-warning" style="border-radius: 10px;">
+                <div class="card shadow-sm border-warning testimonial-card">
                     <div class="card-body text-center">
                         <div class="mb-2">
                             <i class="fas fa-star text-warning"></i>
@@ -268,11 +268,11 @@
         </div>
 
         <div class="text-center mt-5 mb-4">
-            <h2 class="fw-bold text-success">PREGUNTAS FRECUENTES</h2>
-            <p class="text-muted">Encuentra respuestas a tus dudas más comunes.</p>
+            <h2 class="fw-bold text-success section-title">PREGUNTAS FRECUENTES</h2>
+            <p class="text-muted section-subtitle">Encuentra respuestas a tus dudas más comunes.</p>
         </div>
-        <div class="accordion" id="faqAccordion">"
-            <div class="accordion-item">
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item faq-item">
                 <h2 class="accordion-header" id="faq1">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
                         ¿Qué precios manejan?
@@ -284,9 +284,9 @@
                     </div>
                 </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item faq-item">
                 <h2 class="accordion-header" id="faq2">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-aria-controls="collapse2">
                         ¿Cuánto tiempo toma un proyecto?
                     </button>
                 </h2>
@@ -296,7 +296,7 @@
                     </div>
                 </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item faq-item">
                 <h2 class="accordion-header" id="faq3">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
                         ¿Ofrecen soporte técnico?
@@ -311,32 +311,32 @@
         </div>
     </div>
 </section>
-<section id="contact" class="py-5" style="background-color: #e9ecef;">
+<section id="contact" class="contact py-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 text-center mb-4">
-                <h2 class="fw-bold text-success">¡CONTÁCTANOS!</h2>
-                <p class="text-muted">Estamos listos para trabajar juntos.</p>
+                <h2 class="fw-bold text-success section-title">¡CONTÁCTANOS!</h2>
+                <p class="text-muted section-subtitle">Estamos listos para trabajar juntos.</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mb-4">
-                <div class="card border-0 shadow-sm rounded">
-                    <img src="{% static 'images/astronaut.png' %}" alt="Astronauta trabajando" class="card-img-top rounded-top" style="opacity: 0.8;">
+                <div class="card border-0 shadow-sm rounded contact-info-card">
+                    <img src="{% static 'images/astronaut.png' %}" alt="Astronauta trabajando" class="card-img-top rounded-top contact-image">
                     <div class="card-body text-center">
                         <div class="d-flex justify-content-center align-items-center mb-2">
                             <i class="fas fa-envelope fa-2x text-info me-2"></i>
-                            <p class="mb-0">info@innova7e.com</p>
+                            <p class="mb-0 contact-email">info@innova7e.com</p>
                         </div>
                         <div class="d-flex justify-content-center align-items-center mt-2">
                             <i class="fas fa-phone fa-2x text-info me-2"></i>
-                            <p class="mb-0">+58 123 456 7890</p>
+                            <p class="mb-0 contact-phone">+58 123 456 7890</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card border-0 shadow-sm p-4 rounded">
+                <div class="card border-0 shadow-sm p-4 rounded contact-form-card">
                     <form action="#" method="post">
                         {% csrf_token %}
                         <div class="mb-3">
@@ -361,7 +361,7 @@
                             <textarea class="form-control rounded" id="message" name="message" rows="4" placeholder="Escribe Aquí..." required></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success btn-lg rounded-pill w-100">Solicitar Servicio <i class="fas fa-paper-plane ms-2"></i></button>
+                            <button type="submit" class="btn btn-success btn-lg rounded-pill w-100 contact-button">Solicitar Servicio <i class="fas fa-paper-plane ms-2"></i></button>
                         </div>
                     </form>
                 </div>
