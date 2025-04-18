@@ -1,0 +1,82 @@
+[
+  {
+    "model": "pages.siteimages",
+    "pk": 1,
+    "fields": {
+      "name": "Hero",
+      "code": "hero",
+      "image": "site_images/astro-metrics.png",
+      "alt": "Hero"
+    }
+  },
+  {
+    "model": "pages.siteimages",
+    "pk": 2,
+    "fields": {
+      "name": "Graph",
+      "code": "graph",
+      "image": "site_images/graph.png",
+      "alt": "Graph"
+    }
+  },
+  {
+    "model": "pages.siteimages",
+    "pk": 3,
+    "fields": {
+      "name": "Marketing",
+      "code": "marketing",
+      "image": "site_images/marketing.png",
+      "alt": "Marketing"
+    }
+  },
+  {
+    "model": "pages.siteimages",
+    "pk": 4,
+    "fields": {
+      "name": "Presence",
+      "code": "presence",
+      "image": "site_images/presence.png",
+      "alt": "Presence"
+    }
+  },
+  {
+    "model": "pages.siteimages",
+    "pk": 5,
+    "fields": {
+      "name": "Rentability",
+      "code": "rentability",
+      "image": "site_images/rentability.png",
+      "alt": "Rentability"
+    }
+  },
+  {
+    "model": "pages.siteimages",
+    "pk": 6,
+    "fields": {
+      "name": "Web",
+      "code": "web",
+      "image": "site_images/web.png",
+      "alt": "Web"
+    }
+  },
+  {
+    "model": "pages.siteimages",
+    "pk": 7,
+    "fields": {
+      "name": "Work Group",
+      "code": "work_group",
+      "image": "site_images/work_group.png",
+      "alt": "Work Group"
+    }
+  },
+  {
+    "model": "pages.siteimages",
+    "pk": 8,
+    "fields": {
+      "name": "Contact",
+      "code": "contact",
+      "image": "site_images/contact.png",
+      "alt": "Contact"
+    }
+  }
+]
