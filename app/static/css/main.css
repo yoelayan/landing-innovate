@@ -320,10 +320,6 @@ footer a:hover {
 }
 
 #contact .btn-primary:hover {
-<<<<<<< HEAD
-    background-color: #0056b3;
-    border-color: #0056b3;
-=======
     background-color: #1a1a40;
     border-color: #1a1a40;
 }
@@ -356,5 +352,4 @@ footer a:hover {
 
 #landingHero {
     z-index: 2;
->>>>>>> fea01ca88e452163ec127db0d97fac1fd531a7a7
 }
