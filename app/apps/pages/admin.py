@@ -1,7 +1,5 @@
 from django.contrib import admin
-
-from django.contrib import admin
-from .models import Brand, Suscriptor, SiteImages, Messages
+from .models import Suscriptor, Brand, SiteImages, Messages, Testimonial, Question
 from django.utils.html import format_html
 
 
@@ -78,3 +76,6 @@ admin.site.register(Brand, BrandAdmin)
 admin.site.register(Suscriptor, SuscriptorAdmin)
 admin.site.register(SiteImages, SiteImagesAdmin)
 admin.site.register(Messages, MessagesAdmin)
+# Register your models here.
+admin.site.register(Testimonial)
+admin.site.register(Question)

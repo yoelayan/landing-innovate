@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 
 # Apps
-from .models import Brand, Suscriptor, SiteImages
+from .models import Brand, Suscriptor, SiteImages, Testimonial, Question
 from apps.external_integrations.models import Integration
 from .forms import MessagesForm
 
@@ -16,7 +16,6 @@ Refer to pages/urls.py file for more pages.
 
 def suscriptor_process_form(request):
     if request.method == "POST":
-
         email = request.POST.get("email")
         if email:
             try:
@@ -37,7 +36,6 @@ class HomePageView(TemplateView):
             messages.success(request, "Mensaje enviado correctamente")
             form.save()
         else:
-
             context = self.get_context_data(**kwargs)
             context.update(
                 {
@@ -53,7 +51,6 @@ class HomePageView(TemplateView):
         return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
-        # A function to init the global layout. It is defined in web_project/__init__.py file
         context = super().get_context_data(**kwargs)
 
         # Conexiones con externos
@@ -239,17 +236,43 @@ class HomePageView(TemplateView):
                     "icon_classes": "bg-primary",
                     "icon_color": "white",
                     "card_icon": "printer",
-                    "axis": "horizontal",
                     "card_title": "Gigantografía",
+                    "axis": "horizontal",
                     "card_text": "Maximiza tu visibilidad con impresiones de gran formato que capten la atención de todos a gran distancia.",
                 },
             ],
         }
 
+        # Obtener todos los testimonios de la base de datos
+        testimonials = Testimonial.objects.all()
+
+        # Crear una lista para enviar al contexto
+        testimonials_data = []
+        for testimonial in testimonials:
+            testimonials_data.append({
+                'name': testimonial.name,
+                'image': testimonial.image.url if testimonial.image else None,
+                'score': testimonial.score,
+                'text': testimonial.text,
+                'created_at': testimonial.created_at, # Añadimos la fecha de creación
+            })
+
+        # Obtener todas las preguntas de la base de datos
+        questions = Question.objects.all()
+
+        # Crear una lista para enviar al contexto
+        questions_data = []
+        for question in questions:
+            questions_data.append({
+                'question_text': question.question_text,
+                'answer_text': question.answer_text,
+                'id': question.id,  # Necesario para el id del accordion
+            })
+
         # Update the context
         context.update(
             {
-                
+
                 "navbar_full": True,
                 "active_url": self.request.path,
                 "page_title": "POTENCIA TU NEGOCIO Y DESTACA EN EL MUNDO DIGITAL",
@@ -278,6 +301,8 @@ class HomePageView(TemplateView):
                 "contact_form": contact_form,
                 "integrations_footer": integrations_footer,
                 "integrations_head": integrations_head,
+                "testimonials": testimonials_data, # Añadimos la lista de testimonios al contexto
+                "questions": questions_data, # Añadimos la lista de preguntas al contexto
             }
         )
 

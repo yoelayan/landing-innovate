@@ -125,3 +125,140 @@ footer a:hover {
 #landingHero {
     z-index: 2;
 }
+
+@font-face {
+    font-family: "Helvetica LT Std Condensed";
+    src: url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.eot");
+    src: url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.svg#Helvetica LT Std Condensed") format("svg");
+  }
+  
+  :root {
+      --primary-color: #4a4a8e;
+      --secondary-color: #f4f4f4;
+      --font-family: 'Helvetica LT Std Condensed', sans-serif; /* ¡Aquí cambiamos la fuente! */
+  }
+  
+  body {
+      font-family: var(--font-family);
+      color: #333;
+  }
+  
+  .navbar-brand img {
+      max-height: 40px;
+  }
+  
+  #hero {
+      background: linear-gradient(to right, var(--primary-color), #000);
+  }
+  
+  .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+  }
+  
+  footer {
+      background-color: #222;
+      color: #fff;
+  }
+  
+  #services-benefits {
+      background-color: #f8f9fa;
+  }
+  
+  #services-benefits h2 {
+      color: #2c2c54;
+  }
+  
+  .card-title {
+      color: #2c2c54;
+  }
+  
+  .card-text {
+      color: #6c757d;
+  }
+  
+  .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+  }
+  #benefits {
+      background-color: #2c2c54;
+      color: #ffffff;
+  }
+  
+  #benefits i {
+      color: #ffffff;
+  }
+  
+  #benefits h5 {
+      color: #ffffff;
+  }
+  
+  #benefits p {
+      color: #d1d1d1;
+  }
+  #services h2 {
+      color: #2c2c54;
+  }
+  
+  #services ul {
+      padding-left: 0;
+  }
+  
+  #services li {
+      font-size: 1rem;
+      line-height: 1.5;
+  }
+  
+  #services i {
+      color: #4a90e2;
+  }
+  #contact h2 {
+      color: #2c2c54;
+  }
+  
+  #contact .form-label {
+      font-weight: bold;
+      color: #2c2c54;
+  }
+  
+  #contact .btn-primary {
+      background-color: #2c2c54;
+      border-color: #2c2c54;
+  }
+  
+  #contact .btn-primary:hover {
+      background-color: #1a1a40;
+      border-color: #1a1a40;
+  }
+  
+  #contact .card {
+      border-radius: 10px;
+  }
+  footer {
+      background-color: #2c2c54;
+      color: #ffffff;
+  }
+  
+  footer h6 {
+      color: #ffffff;
+  }
+  
+  footer ul li {
+      font-size: 0.9rem;
+      color: #d1d1d1;
+  }
+  
+  footer a {
+      color: #ffffff;
+      transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+      color: #4a90e2;
+  }
