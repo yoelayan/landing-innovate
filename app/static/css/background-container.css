@@ -3,6 +3,7 @@
   width: 100%;
   height: 894px; /* Ocupa toda la altura de la ventana */
   overflow: hidden;
+  
 }
 .dynamic-background {
   position: absolute;
