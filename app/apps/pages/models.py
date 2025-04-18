@@ -27,6 +27,12 @@ class Brand(models.Model):
         ordering = ["order"]
         verbose_name = "Marca"
         verbose_name_plural = "Marcas"
+    
+    def format_dict(self):
+        return {
+            "src": self.logo.url,
+            "alt": self.name,
+        }
 
 
 class SiteImages(models.Model):
