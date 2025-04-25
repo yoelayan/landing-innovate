@@ -1,73 +1,12 @@
-{% load static %}
-
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-    <div class="container">
-        <!-- Logo -->
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'images/logo/black.png' %}" alt="Innova7e Logo" height="40">
-        </a>
-
-        <!-- Botón de menú para pantallas pequeñas -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Enlaces del navbar -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-                <!-- Acerca de -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Acerca de
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                        <li><a class="dropdown-item" href="#">Nuestra Historia</a></li>
-                        <li><a class="dropdown-item" href="#">Equipo</a></li>
-                        <li><a class="dropdown-item" href="#">Carreras</a></li>
-                    </ul>
-                </li>
-
-                <!-- Soluciones -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-cube me-1"></i> Soluciones
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
-                        <li><a class="dropdown-item" href="#">Marketing Digital</a></li>
-                        <li><a class="dropdown-item" href="#">Desarrollo Web</a></li>
-                        <li><a class="dropdown-item" href="#">Diseño Gráfico</a></li>
-                    </ul>
-                </li>
-
-                <!-- Precios -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="pricingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-layer-group me-1"></i> Precios
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="pricingDropdown">
-                        <li><a class="dropdown-item" href="#">Planes Básicos</a></li>
-                        <li><a class="dropdown-item" href="#">Planes Avanzados</a></li>
-                        <li><a class="dropdown-item" href="#">Planes Personalizados</a></li>
-                    </ul>
-                </li>
-
-                <!-- Insight -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="insightDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-chart-line me-1"></i> Insight
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="insightDropdown">
-                        <li><a class="dropdown-item" href="#">Estadísticas</a></li>
-                        <li><a class="dropdown-item" href="#">Casos de Éxito</a></li>
-                        <li><a class="dropdown-item" href="#">Tendencias</a></li>
-                    </ul>
-                </li>
-
-                <!-- Contacto -->
-                <li class="nav-item">
-                    <a class="nav-link fw-bold" href="#">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<header class="container">
+    <a href="#" class="text-xl font-bold letras-blancas">
+    </a>
+    <nav class="navbar custom-navbar">
+        <ul class="flex space-x-6">
+            <li><a href="#inicio" class="nav-link">Inicio</a></li>
+            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
