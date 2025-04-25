@@ -1,18 +1,273 @@
+
+:root{
+    --font-family: 'Helvetica LT Std', sans-serif;
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-black: #000;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-primary: #2D2742;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-primary-rgb: 45, 39, 66;
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-success-rgb: 25, 135, 84;
+  --bs-info-rgb: 13, 202, 240;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 220, 53, 69;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-primary-text-emphasis: #181524;
+  --bs-secondary-text-emphasis: #2b2f32;
+  --bs-success-text-emphasis: #0a3622;
+  --bs-info-text-emphasis: #055160;
+  --bs-warning-text-emphasis: #664d03;
+  --bs-danger-text-emphasis: #58151c;
+  --bs-light-text-emphasis: #495057;
+  --bs-dark-text-emphasis: #495057;
+  --bs-primary-bg-subtle: #66579c;
+  
+  --bs-secondary-bg-subtle: #e2e3e5;
+  --bs-success-bg-subtle: #d1e7dd;
+  --bs-info-bg-subtle: #cff4fc;
+  --bs-warning-bg-subtle: #fff3cd;
+  --bs-danger-bg-subtle: #f8d7da;
+  --bs-light-bg-subtle: #fcfcfd;
+  --bs-dark-bg-subtle: #ced4da;
+  --bs-primary-border-subtle: #66579c;
+  --bs-secondary-border-subtle: #c4c8cb;
+  --bs-success-border-subtle: #a3cfbb;
+  --bs-info-border-subtle: #9eeaf9;
+  --bs-warning-border-subtle: #ffe69c;
+  --bs-danger-border-subtle: #f1aeb5;
+  --bs-light-border-subtle: #e9ecef;
+  --bs-dark-border-subtle: #adb5bd;
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-font-sans-serif: 'Helvetica LT Std', sans-serif;
+  --bs-font-monospace: 'Helvetica LT Std', sans-serif;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-size: 1rem;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.5;
+  --bs-body-color: #212529;
+  --bs-body-color-rgb: 33, 37, 41;
+  --bs-body-bg: #fff;
+  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-emphasis-color: #000;
+  --bs-emphasis-color-rgb: 0, 0, 0;
+  --bs-secondary-color: rgba(33, 37, 41, 0.75);
+  --bs-secondary-color-rgb: 33, 37, 41;
+  --bs-secondary-bg: #e9ecef;
+  --bs-secondary-bg-rgb: 233, 236, 239;
+  --bs-tertiary-color: rgba(33, 37, 41, 0.5);
+  --bs-tertiary-color-rgb: 33, 37, 41;
+  --bs-tertiary-bg: #f8f9fa;
+  --bs-tertiary-bg-rgb: 248, 249, 250;
+  --bs-heading-color: inherit;
+  --bs-link-color: #2D2742;;
+  --bs-link-color-rgb: 13, 110, 253;
+  --bs-link-decoration: underline;
+  --bs-link-hover-color: #66579c;
+  --bs-link-hover-color-rgb: 10, 88, 202;
+  --bs-code-color: #d63384;
+  --bs-highlight-color: #212529;
+  --bs-highlight-bg: #fff3cd;
+  --bs-border-width: 1px;
+  --bs-border-style: solid;
+  --bs-border-color: #dee2e6;
+  --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+  --bs-border-radius: 0.375rem;
+  --bs-border-radius-sm: 0.25rem;
+  --bs-border-radius-lg: 0.5rem;
+  --bs-border-radius-xl: 1rem;
+  --bs-border-radius-xxl: 2rem;
+  --bs-border-radius-2xl: var(--bs-border-radius-xxl);
+  --bs-border-radius-pill: 50rem;
+  --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  --bs-focus-ring-width: 0.25rem;
+  --bs-focus-ring-opacity: 0.25;
+  --bs-focus-ring-color: rgba(13, 110, 253, 0.25);
+  --bs-form-valid-color: #198754;
+  --bs-form-valid-border-color: #198754;
+  --bs-form-invalid-color: #dc3545;
+  --bs-form-invalid-border-color: #dc3545;
+}
+
 @font-face {
-    font-family: "Helvetica LT Std Condensed";
+    font-family: "Helvetica LT Std";
     src: url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.eot");
     src: url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.eot?#iefix") format("embedded-opentype"),
          url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.woff2") format("woff2"),
          url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.woff") format("woff"),
          url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.ttf") format("truetype"),
-         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.svg#Helvetica LT Std Condensed") format("svg");
+         url("https://db.onlinewebfonts.com/t/d1621c0a2695c84cf82717e2e4de78c3.svg#Helvetica LT Std") format("svg");
 }
 
-:root {
-    --primary-color: #007bff; /* Cambiado a un azul estándar */
-    --secondary-color: #f8f9fa; /* Cambiado a un gris claro estándar */
-    --font-family: 'Helvetica LT Std Condensed', sans-serif; /* Prioriza Helvetica Condensed */
+.display-1 {
+    font-size: 6rem;
 }
+
+.display-2 {
+    font-size: 5.5rem;
+}
+
+.display-3 {
+    font-size: 4.5rem;
+}
+
+.display-4 {
+    font-size: 3.5rem;
+}
+
+.display-5 {
+    font-size: 3rem;
+}
+
+.display-6 {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .display-sm-1 {
+        font-size: 4rem;
+    }
+
+    .display-sm-2 {
+        font-size: 3.5rem;
+    }
+
+    .display-sm-3 {
+        font-size: 3rem;
+    }
+
+    .display-sm-4 {
+        font-size: 2.5rem;
+    }
+
+    .display-sm-5 {
+        font-size: 2rem;
+    }
+
+    .display-sm-6 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .display-md-1 {
+        font-size: 5rem;
+    }
+
+    .display-md-2 {
+        font-size: 4.5rem;
+    }
+
+    .display-md-3 {
+        font-size: 4rem;
+    }
+
+    .display-md-4 {
+        font-size: 3rem;
+    }
+
+    .display-md-5 {
+        font-size: 2.5rem;
+    }
+
+    .display-md-6 {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .display-lg-1 {
+        font-size: 6rem;
+    }
+
+    .display-lg-2 {
+        font-size: 5.5rem;
+    }
+
+    .display-lg-3 {
+        font-size: 4.5rem;
+    }
+
+    .display-lg-4 {
+        font-size: 3.5rem;
+    }
+
+    .display-lg-5 {
+        font-size: 3rem;
+    }
+
+    .display-lg-6 {
+        font-size: 2.5rem;
+    }
+}
+
+/* section-py */
+.section-py {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* btn.btn-primary */
+.btn.btn-primary {
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--bs-primary-bg-subtle);
+    border-color: var(--bs-primary-border-subtle);
+    color: var(--bs-white);
+}
+
+.btn.btn-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.5);
+}
+
+.btn.btn-primary:active {
+    background-color: var(--bs-primary-bg-subtle);
+    border-color: var(--bs-primary-border-subtle);
+    color: var(--bs-white);
+}
+
+.btn.btn-primary:disabled {
+    background-color: var(--bs-gray-400);
+    border-color: var(--bs-gray-400);
+    color: var(--bs-white);
+}
+
 
 body {
     font-family: var(--font-family);
@@ -22,151 +277,7 @@ body {
     margin: 0;
 }
 
-.navbar-brand img {
-    max-height: 40px;
-}
-
-#hero {
-    background: linear-gradient(135deg, #4364f7, #6dd5ed); /* Mantiene el degradado vibrante */
-    padding: 120px 0;
-    position: relative;
-    overflow: hidden;
-    color: #fff; /* Texto blanco para el fondo hero */
-    text-align: center;
-}
-
-#hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.3;
-    z-index: 0;
-}
-
-#hero .container {
-    position: relative;
-    z-index: 1;
-}
-
-#hero h1 {
-    font-family: 'Helvetica LT Std Condensed', sans-serif; /* Usa la fuente condensada aquí */
-    font-size: 3.5rem; /* Reducido para mejor legibilidad */
-    font-weight: bold;
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-#hero p {
-    font-size: 1.5rem; /* Reducido para mejor legibilidad */
-    color: #f8f9fa;
-    margin-bottom: 40px;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: #fff;
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 0.25rem;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
-    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-}
-
-footer {
-    background-color: #343a40; /* Un gris oscuro estándar */
-    color: #f8f9fa; /* Un blanco suave */
-    padding: 30px 0;
-    text-align: center;
-}
-
-footer h6 {
-    color: #f8f9fa;
-    margin-bottom: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-footer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-footer ul li {
-    font-size: 0.9rem;
-    color: #adb5bd; /* Un gris más claro */
-    margin-bottom: 8px;
-}
-
-footer a {
-    color: #f8f9fa;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: var(--primary-color);
-}
-
-#services-benefits {
-    background-color: var(--secondary-color);
-    padding: 80px 0;
-    text-align: center;
-}
-
-#services-benefits h2 {
-    color: #343a40;
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-.card {
-    border: none;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-    border-radius: 0.5rem;
-    margin-bottom: 30px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.card-title {
-    color: #343a40;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.card-text {
-    color: #6c757d;
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-}
-
+/* Page Styles */
 #benefits {
     background-color: #2c3e50; /* Un tono oscuro */
     color: #fff;

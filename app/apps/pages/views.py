@@ -131,7 +131,7 @@ class HomePageView(TemplateView):
             },
             {
                 "extra_classes": "text-center",
-                "card_icon": "heart-handshake",
+                "card_icon": "handshake",
                 "card_title": "Consultoría Especializada",
                 "card_text": "Analizamos tu modelo de negocio en detalle y diseñamos soluciones a la medida para cada desafío que enfrentes.",
             },
@@ -143,7 +143,7 @@ class HomePageView(TemplateView):
             },
             {
                 "extra_classes": "text-center",
-                "card_icon": "pig-money",
+                "card_icon": "piggy-bank",
                 "card_title": "Recursos Óptimos",
                 "card_text": "Optimizamos tus recursos para maximizar el retorno de tu inversión.",
             },

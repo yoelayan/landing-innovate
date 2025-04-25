@@ -1,46 +1,38 @@
-<main class="container">
-    <section class="text-left">
-        <h1 class="display font-bold letras-blancas">
-            POTENCIA TU NEGOCIO Y<br>DESTACA EN EL<br>MUNDO DIGITAL
-        </h1>
-        <p class="text-gray-300">
-            ¡Da el siguiente paso hacia el éxito! Ponte en contacto y descubre cómo nuestros servicios pueden impulsar tu negocio a lo más alto.
-        </p>
-        <button>
-            Contactar
-        </button>
-    </section>
-    <section class="stats-section">
-        <div class="stat-card">
-            <h2>Ventas Concretadas</h2>
-            <p class="text-purple-400">38.4K</p>
-            <div class="chart-container">
-                <svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
-                    <path d="M0,30 C30,10 70,20 100,0" fill="none" stroke="#805AD5" stroke-width="2"/>
-                </svg>
-            </div>
-        </div>
-        <div class="stat-card">
-            <h2>Ganancias Generadas</h2>
-            <p class="text-green-400">97.5K</p>
-            <div class="chart-container">
-                <svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
-                    <path d="M0,0 C 30,20 70,10 100,30" fill="none" stroke="#38A169" stroke-width="2"/>
-                </svg>
-            </div>
-        </div>
-        <div class="stat-card col-span-full">
-            <h2>Ganancias</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <h3>This Month</h3>
-                    <p class="text-yellow-400">$86,589</p>
-                </div>
-                <div>
-                    <h3>Last Month</h3>
-                    <p class="text-blue-400">$73,290</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
+<!-- Hero Section -->
+<section class="d-flex flex-column background-container" id="hero-animation">
+  <div class="dynamic-background"></div>
+  <div id="landingHero" class="section-py pt-0 pb-0" style="z-index: 2;">
+      <div class="container">
+          <div id="desktopHero" class="section-py pb-0 d-none d-md-block">
+              <div class="row align-items-center gy-12">
+                  <div class="col-md-6 text-md-center">
+                      <div class="hero-text-box text-md-start">
+                          <h1 class="text-white display-lg-3 display-md-3 display-sm-6 fw-extrabold">{{page_title}}</h1>
+                          <p class="h5 text-white mt-3">{{page_subtitle}}</p>
+                          <a href="#landingContact" class="btn btn-primary btn-outline-light btn-lg mt-3">Contactar</a>
+                      </div>
+                  </div>
+                  <div class="col-md-6 mt-5">
+                      <div class="hero-animation-img d-flex justify-content-center">
+                          <img class="w-100 hero-elements-img animation-img img-fluid" src="{{hero_image.image.url}}" alt="{{hero_image.alt}}" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div id="mobileHero" class="section-py pb-0 d-md-none">
+              <div class="row align-items-center gy-12">
+                  <div class="col-md-12 text-md-center">
+                      <div class="d-flex flex-column hero-text-box text-md-start">
+                          <h1 class="text-white text-center display-6 display-md-5 display-sm-6 fw-extrabold">{{page_title}}</h1>
+                          <p class="text-center text-white mt-3">{{page_subtitle}}</p>
+                          <a href="#landingContact" class="btn btn-outline-secondary bg-primary text-white mt-3">Contactar</a>
+                      </div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                      <img class="w-75 hero-elements-img animation-img img-fluid" src="{{hero_image.image.url}}" alt="{{hero_image.alt}}" />
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
