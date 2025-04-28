@@ -1,47 +1,85 @@
-
-{% load static %}
-<section id="services-benefits" class="py-5">
-    <div class="container">
-        <!-- Primera fila: Servicios -->
-        <div class="row text-center mb-5">
-            {% for service in features %}
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body">
-                            <i class="fas {{service.card_icon}} fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title fw-bold">{{service.card_title}}</h5>
-                            <p class="card-text">
-                                {{service.card_text}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página de Servicios</title>
+  <style>
+    /* Contenedor general */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    /* Cada sección (feature) */
+    .section {
+      background-color: #f8f8f8;
+      border-radius: 8px;
+      text-align: center;
+      flex: 1 1 280px; /* Flex grow, shrink y ancho base mínimo */
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .section .icon {
+      margin-bottom: 10px;
+    }
+    .section .icon i {
+      font-size: 80px; /* Tamaño inicial de los íconos */
+      color: #333;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .section p {
+      font-size: 1rem;
+      color: #666;
+    }
+    /* Media queries para dispositivos medianos y pequeños */
+    @media (max-width: 768px) {
+      .section .icon i {
+        font-size: 60px;
+      }
+      .section h2 {
+        font-size: 1.3rem;
+      }
+      .section p {
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .section .icon i {
+        font-size: 50px;
+      }
+      .section h2 {
+        font-size: 1.2rem;
+      }
+      .section p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% for feature in features %}
+      <div class="section {{ feature.extra_classes }}">
+        <div class="icon">
+          <i class="fas {{ feature.card_icon }}"></i>
         </div>
-
-        <!-- Título central -->
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">PROTEGE TUS INVERSIONES CON PRECISIÓN ABSOLUTA.</h2>
-            <p class="text-muted">
-                Nuestro equipo experto te ofrece asesoría personalizada, ayudándote a impulsar tu negocio con confianza.
-            </p>
+        <div class="content">
+          <h2>{{ feature.card_title }}</h2>
+          <p>{{ feature.card_text }}</p>
         </div>
-
-        <!-- Segunda fila: Beneficios -->
-        <div class="row text-center">
-            {% for feature in features_2 %}
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm">
-                        <img src="{{ feature.card_image }}" class="card-img-top" alt="{{ feature.card_title }}">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">{{ feature.card_title }}</h5>
-                            <p class="card-text">
-                                {{ feature.card_text }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <!-- Se incluye el kit de Font Awesome para que funcionen los íconos -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
