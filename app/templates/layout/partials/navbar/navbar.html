@@ -6,6 +6,8 @@
   <title>Navbar Morada Creativa</title>
   <!-- Fuente Poppins para un toque moderno -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome para los íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Reset y fuente global */
     * {
@@ -39,12 +41,20 @@
       z-index: 1000;
     }
     
-    /* Logo */
+    /* Logo: texto y imagen */
     .navbar .logo {
+      display: flex;
+      align-items: center;
       font-size: 1.5rem;
       font-weight: 700;
       color: #fff;
       text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .navbar .logo img {
+      height: 40px;
+      width: auto;
+      margin-left: 10px;
     }
     
     /* Contenedor de ítems */
@@ -83,6 +93,11 @@
       width: 100%;
     }
     
+    /* Espacio entre ícono y texto en menú */
+    .navbar .menu a i {
+      margin-right: 8px;
+    }
+    
     /* Botón de Contacto */
     .contact-btn {
       background: #ffdd57;
@@ -99,7 +114,7 @@
       background: #ffc107;
     }
     
-    /* Cambio de estilo en navbar al hacer scroll (ajusta padding si se desea) */
+    /* Cambio de estilo en navbar al hacer scroll (se ajusta padding) */
     .navbar.scrolled {
       padding: 10px 50px;
     }
@@ -124,18 +139,26 @@
   </style>
 </head>
 <body>
-<!-- Navbar -->
-<nav class="navbar" id="navbar">
-    <img src="/static/images/logo/white.png" alt="Logo">
-  <div class="menu">
-    <a href="#acerca">Acerca de</a>
-    <a href="#services">Soluciones</a>
-    <a href="#precios">Precios</a>
-    <a href="#insight">Insight</a>
-  </div>
-  <a href="#contacto"><button class="contact-btn">Contacto</button></a>
-</nav>
-
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      Innova7e
+      <img src="/static/images/logo/icon-white.png" alt="Logo">
+    </div>
+    <div class="menu">
+      <a href="#acerca">
+        <i class="fa-solid fa-house"></i> Acerca de
+      </a>
+      <a href="#services">
+        <i class="fa-solid fa-cube"></i> Soluciones
+      </a>
+      <a href="#precios">
+        <i class="fa-solid fa-layer-group"></i> Precios
+      </a>
+      <a href="#insight">
+        <i class="fa-solid fa-chart-bar"></i> Insight
+      </a>
+    </div>
     <a href="#contacto">
       <button class="contact-btn">Contacto</button>
     </a>
