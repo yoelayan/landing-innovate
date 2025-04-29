@@ -1,12 +1,156 @@
-<header class="container">
-    <a href="#" class="text-xl font-bold letras-blancas">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navbar Morada Creativa</title>
+  <!-- Fuente Poppins para un toque moderno -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset y fuente global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      min-height: 200vh; /* Para efectos de scroll y demo */
+    }
+    
+    /* Estilos de la navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(128, 0, 128, 0.95); /* Navbar morada desde el inicio */
+      transition: background 0.5s ease, padding 0.5s ease;
+      z-index: 1000;
+    }
+    
+    /* Logo */
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Contenedor de ítems */
+    .navbar .menu {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    
+    .navbar .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s, transform 0.3s;
+    }
+    
+    /* Efecto de línea inferior en hover */
+    .navbar .menu a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s;
+    }
+    
+    .navbar .menu a:hover {
+      color: #ffdd57;
+      transform: translateY(-3px);
+    }
+    
+    .navbar .menu a:hover::after {
+      width: 100%;
+    }
+    
+    /* Botón de Contacto */
+    .contact-btn {
+      background: #ffdd57;
+      border: none;
+      padding: 10px 20px;
+      color: #333;
+      font-weight: 500;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .contact-btn:hover {
+      background: #ffc107;
+    }
+    
+    /* Cambio de estilo en navbar al hacer scroll (ajusta padding si se desea) */
+    .navbar.scrolled {
+      padding: 10px 50px;
+    }
+    
+    .navbar.scrolled .logo {
+      color: #ffdd57;
+    }
+    
+    /* Estilos para las secciones de demostración */
+    section {
+      min-height: 100vh;
+      padding: 120px 50px 50px;
+    }
+    
+    .section-container {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin: 30px 0;
+      padding: 50px;
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <img src="/static/images/logo/white.png" alt="Logo">
+  <div class="menu">
+    <a href="#acerca">Acerca de</a>
+    <a href="#services">Soluciones</a>
+    <a href="#precios">Precios</a>
+    <a href="#insight">Insight</a>
+  </div>
+  <a href="#contacto"><button class="contact-btn">Contacto</button></a>
+</nav>
+
+    <a href="#contacto">
+      <button class="contact-btn">Contacto</button>
     </a>
-    <nav class="navbar custom-navbar">
-        <ul class="flex space-x-6">
-            <li><a href="#inicio" class="nav-link">Inicio</a></li>
-            <li><a href="#servicios" class="nav-link">Servicios</a></li>
-            <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
-            <li><a href="#contacto" class="nav-link">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
+  </nav>
+  
+  <script>
+    // Cambia la apariencia de la navbar al hacer scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
