@@ -1,63 +1,146 @@
-<section id="contact" class="py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Título -->
-            <div class="col-12 text-center mb-4">
-                <h2 class="fw-bold, display-4">CONTACTANOS</h2>
-                <p class="text-muted, display-5">Trabajemos juntos</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <img src="{{ contact_image.image.url }}" alt="Astronauta trabajando" class="card-img-top rounded">
-                    <div class="card-body text-center">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <i class="fas fa-envelope fa-2x text-primary me-2"></i>
-                            <p class="mb-0">{{ contact_info.email }}</p>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center mt-2">
-                            <i class="fas fa-phone fa-2x text-primary me-2"></i>
-                            <p class="mb-0">{{ contact_info.phone }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Formulario de contacto -->
-            <div class="col-md-6">
-                <div class="card border-0 shadow-sm p-4">
-                    <form action="#" method="post">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nombre Completo</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Escribe Aquí..." required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Escribe Aquí..." required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="service" class="form-label">Servicio Interesado</label>
-                            <select class="form-select" id="service" name="service" required>
-                                <option value="" disabled selected>Selecciona</option>
-                                <option value="marketing">Marketing Digital</option>
-                                <option value="web">Desarrollo Web</option>
-                                <option value="design">Diseño Gráfico</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Escribe Aquí..." required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary w-100">Solicitar Servicio</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-            
-        </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contáctanos - Trabajemos juntos</title>
+  <style>
+    /* Reset y estilos globales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+      color: #333;
+    }
+    /* Contenedor principal para el área de contacto */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    /* Sección izquierda: Información visual y de contacto */
+    .contact-left {
+      flex: 1 1 400px;
+      background-color: #0d47a1;
+      color: #fff;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .contact-left h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .contact-left p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-left img.astronaut {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 1.5rem;
+    }
+    /* Sección derecha: Formulario de contacto */
+    .contact-right {
+      flex: 1 1 400px;
+      padding: 2rem;
+    }
+    .contact-right form {
+      width: 100%;
+    }
+    .contact-right form label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    .contact-right form input,
+    .contact-right form select,
+    .contact-right form textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .contact-right form textarea {
+      resize: vertical;
+    }
+    .contact-right form button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #0d47a1;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .contact-right form button:hover {
+      background-color: #0b3c91;
+    }
+    /* Adaptación para pantallas pequeñas */
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
+      .contact-left,
+      .contact-right {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <!-- Sección izquierda: Información y elementos visuales -->
+    <div class="contact-left">
+      <div class="contact-heading">
+        <h2>CONTACTANOS</h2>
+        <p>Trabajemos juntos</p>
+      </div>
+      <!-- Imagen del astronauta con la ruta actualizada -->
+      <img class="astronaut" src="site_images/contact.png" alt="Astronauta usando computadora">
     </div>
-</section>
+    <!-- Sección derecha: Formulario de contacto -->
+    <div class="contact-right">
+      <form action="procesar_formulario.php" method="post">
+        <!-- Campo para el Nombre Completo -->
+        <label for="nombre">Nombre Completo</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Escribe aquí..." required>
+        <!-- Campo para el Email -->
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Escribe aquí..." required>
+        <!-- Campo para seleccionar el Servicio Interesado -->
+        <label for="servicio">Servicio Interesado</label>
+        <select id="servicio" name="servicio" required>
+          <option value="">Selecciona</option>
+          <option value="desarrollo-web">Desarrollo Web</option>
+          <option value="marketing-digital">Marketing Digital</option>
+          <option value="diseno-grafico">Diseño Gráfico</option>
+        </select>
+        <!-- Campo para escribir el Mensaje -->
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí..." required></textarea>
+        <!-- Botón de envío del formulario -->
+        <button type="submit">Solicitar Servicio</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

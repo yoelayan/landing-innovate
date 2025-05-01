@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Navbar Morada Creativa</title>
+  <title>Navbar con Transición de Color</title>
   <!-- Fuente Poppins para un toque moderno -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <!-- Font Awesome para los íconos -->
@@ -26,7 +26,7 @@
       min-height: 200vh; /* Para efectos de scroll y demo */
     }
     
-    /* Estilos de la navbar */
+    /* Estado inicial: navbar con fondo blanco muy transparente y textos morados */
     .navbar {
       position: fixed;
       top: 0;
@@ -36,19 +36,18 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
-      background: rgba(128, 0, 128, 0.95); /* Navbar morada desde el inicio */
-      transition: background 0.5s ease, padding 0.5s ease;
+      background: rgba(255, 255, 255, 0.2); /* Fondo muy transparente */
+      transition: background 0.5s ease, padding 0.5s ease, color 0.5s ease;
       z-index: 1000;
     }
     
-    /* Logo: texto y imagen */
+    /* Logo: texto + imagen */
     .navbar .logo {
       display: flex;
       align-items: center;
       font-size: 1.5rem;
       font-weight: 700;
-      color: #fff;
-      text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      color: #800080;
     }
     
     .navbar .logo img {
@@ -57,7 +56,7 @@
       margin-left: 10px;
     }
     
-    /* Contenedor de ítems */
+    /* Menú */
     .navbar .menu {
       display: flex;
       gap: 30px;
@@ -65,14 +64,14 @@
     }
     
     .navbar .menu a {
-      color: #fff;
+      color: #800080;
       text-decoration: none;
       font-size: 1rem;
       position: relative;
       transition: color 0.3s, transform 0.3s;
     }
     
-    /* Efecto de línea inferior en hover */
+    /* Línea inferior en hover */
     .navbar .menu a::after {
       content: '';
       position: absolute;
@@ -80,50 +79,66 @@
       bottom: -4px;
       width: 0;
       height: 2px;
-      background: #fff;
+      background: currentColor;
       transition: width 0.3s;
     }
     
     .navbar .menu a:hover {
-      color: #ffdd57;
       transform: translateY(-3px);
+      color: #9B30FF; /* Variación en hover */
     }
     
     .navbar .menu a:hover::after {
       width: 100%;
+      background: #9B30FF;
     }
     
-    /* Espacio entre ícono y texto en menú */
+    /* Espacio entre ícono y texto */
     .navbar .menu a i {
       margin-right: 8px;
     }
     
     /* Botón de Contacto */
     .contact-btn {
-      background: #ffdd57;
-      border: none;
-      padding: 10px 20px;
-      color: #333;
+      background: transparent;
+      border: 2px solid #800080;
+      padding: 8px 16px;
+      color: #800080;
       font-weight: 500;
       border-radius: 25px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, color 0.3s, border 0.3s;
     }
     
     .contact-btn:hover {
-      background: #ffc107;
+      background: rgba(128, 0, 128, 0.1);
     }
     
-    /* Cambio de estilo en navbar al hacer scroll (se ajusta padding) */
+    /* Estado "scrolled": navbar con fondo blanco sólido y el mismo color morado en los textos */
     .navbar.scrolled {
+      background: #fff;
       padding: 10px 50px;
     }
     
-    .navbar.scrolled .logo {
-      color: #ffdd57;
+    .navbar.scrolled .logo,
+    .navbar.scrolled .menu a {
+      color: #800080;
     }
     
-    /* Estilos para las secciones de demostración */
+    .navbar.scrolled .menu a::after {
+      background: #800080;
+    }
+    
+    .navbar.scrolled .contact-btn {
+      border: 2px solid #800080;
+      color: #800080;
+    }
+    
+    .navbar.scrolled .contact-btn:hover {
+      background: rgba(128, 0, 128, 0.1);
+    }
+    
+    /* Estilos de secciones para demostración */
     section {
       min-height: 100vh;
       padding: 120px 50px 50px;
@@ -146,18 +161,10 @@
       <img src="/static/images/logo/icon-white.png" alt="Logo">
     </div>
     <div class="menu">
-      <a href="#acerca">
-        <i class="fa-solid fa-house"></i> Acerca de
-      </a>
-      <a href="#services">
-        <i class="fa-solid fa-cube"></i> Soluciones
-      </a>
-      <a href="#precios">
-        <i class="fa-solid fa-layer-group"></i> Precios
-      </a>
-      <a href="#insight">
-        <i class="fa-solid fa-chart-bar"></i> Insight
-      </a>
+      <a href="#acerca"><i class="fa-solid fa-house"></i> Acerca de</a>
+      <a href="#services"><i class="fa-solid fa-cube"></i> Soluciones</a>
+      <a href="#precios"><i class="fa-solid fa-layer-group"></i> Precios</a>
+      <a href="#insight"><i class="fa-solid fa-chart-bar"></i> Insight</a>
     </div>
     <a href="#contacto">
       <button class="contact-btn">Contacto</button>
@@ -165,10 +172,10 @@
   </nav>
   
   <script>
-    // Cambia la apariencia de la navbar al hacer scroll
+    // Agrega o quita la clase "scrolled" según el scroll (umbral de 100 píxeles)
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
+      if (window.scrollY > 100) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
