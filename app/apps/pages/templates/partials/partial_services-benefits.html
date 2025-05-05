@@ -3,9 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Página de Servicios</title>
+  <title>Página de Servicios y Promociones</title>
+  
+  <!-- ============================ -->
+  <!-- Estilos Globales, Banner y Servicios Estáticos -->
+  <!-- ============================ -->
   <style>
-    /* Contenedor general */
+    /* Reset y estilos globales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+    
+    /* BANNER PROMOCIONAL (Sección Media) */
+    .banner {
+      background-color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 1200px;
+      border-radius: 10px;
+    }
+    .banner h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      color: #2d2742; /* Título en color principal */
+    }
+    .banner p.subtitle {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      color: #2d2742;
+    }
+    .sections {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    /* Actualizamos cada caja interna del banner: fondo se vuelve #2d2742 y textos claros */
+    .banner .section {
+      flex: 1 1 300px;
+      max-width: 300px;
+      background-color: #2d2742;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .banner .section:hover {
+      transform: translateY(-5px);
+    }
+    .banner .section img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+    }
+    .banner .section h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .banner .section p {
+      font-size: 1em;
+      color: #eee;
+      line-height: 1.4;
+    }
+    
+    /* CONTENEDOR PARA SERVICIOS ESTÁTICOS (Sección Inferior - Imágenes) */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -15,31 +88,84 @@
       justify-content: center;
       gap: 20px;
     }
-    /* Cada sección (feature) */
-    .section {
-      background-color: #f8f8f8;
+    /* Actualizamos las cajas estáticas: fondo #2d2742 y textos claros */
+    .container .section {
+      background-color: #2d2742;
+      border-radius: 8px;
+      text-align: center;
+      flex: 1 1 280px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .container .section img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .container .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .container .section p {
+      font-size: 1rem;
+      color: #eee;
+    }
+    
+    /* Media queries para Banner y Servicios Estáticos */
+    @media (max-width: 768px) {
+      .banner .section h2,
+      .container .section h2 {
+        font-size: 1.3rem;
+      }
+      .banner .section p,
+      .container .section p {
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .banner .section h2,
+      .container .section h2 {
+        font-size: 1.2rem;
+      }
+      .banner .section p,
+      .container .section p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+  
+  <!-- ============================ -->
+  <!-- Estilos del Código con Bucle for (Servicios Dinámicos) -->
+  <!-- ============================ -->
+  <style>
+    /* Actualizamos el contenedor del bucle dinámico (se integra en .container) */
+    .container .section {
+      background-color: #2d2742; /* fondo actualizado */
       border-radius: 8px;
       text-align: center;
       flex: 1 1 280px; /* Flex grow, shrink y ancho base mínimo */
       padding: 15px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      color: #fff;
     }
     .section .icon {
       margin-bottom: 10px;
     }
     .section .icon i {
       font-size: 80px; /* Tamaño inicial de los íconos */
-      color: #333;
+      color: #fff;  /* Actualizamos a blanco para buen contraste */
     }
     .section h2 {
       font-size: 1.5rem;
       margin-bottom: 10px;
+      color: #fff;
     }
     .section p {
       font-size: 1rem;
-      color: #666;
+      color: #eee;
     }
-    /* Media queries para dispositivos medianos y pequeños */
+    /* Media queries para dispositivos medianos y pequeños (dinámicos) */
     @media (max-width: 768px) {
       .section .icon i {
         font-size: 60px;
@@ -63,8 +189,77 @@
       }
     }
   </style>
+  
+  <!-- ============================ -->
+  <!-- Estilos para la Sección Superior (Top Features) -->
+  <!-- ============================ -->
+  <style>
+    .top-features {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .top-features .section {
+      background-color: #2d2742; /* Fondo actualizado */
+      border-radius: 8px;
+      text-align: center;
+      flex: 1 1 280px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .top-features .section:hover {
+      transform: translateY(-5px);
+    }
+    .top-features .section .icon {
+      margin-bottom: 10px;
+    }
+    .top-features .section .icon i {
+      font-size: 80px;
+      color: #fff;  /* Se actualiza el color del icono a blanco */
+    }
+    .top-features .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .top-features .section p {
+      font-size: 1rem;
+      color: #eee;
+    }
+    @media (max-width: 768px) {
+      .top-features .section .icon i {
+        font-size: 60px;
+      }
+      .top-features .section h2 {
+        font-size: 1.3rem;
+      }
+      .top-features .section p {
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .top-features .section .icon i {
+        font-size: 50px;
+      }
+      .top-features .section h2 {
+        font-size: 1.2rem;
+      }
+      .top-features .section p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ============================ -->
+  <!-- SECCIÓN DE SERVICIOS DINÁMICOS (BUCLE FOR) -->
+  <!-- ============================ -->
   <div class="container">
     {% for feature in features %}
       <div class="section {{ feature.extra_classes }}">
@@ -79,7 +274,42 @@
     {% endfor %}
   </div>
   
-  <!-- Se incluye el kit de Font Awesome para que funcionen los íconos -->
+
+  <!-- ============================ -->
+  <!-- SECCIÓN INFERIOR: SERVICIOS ESTÁTICOS (IMÁGENES) -->
+  <!-- ============================ -->
+  <div class="container">
+    <h1>PROTEGE TUS INVERSIONES CON PRECISIÓN ABSOLUTA.</h1>
+    <p class="title">
+      Nuestro equipo experto te ofrece asesoría personalizada, ayudándote a impulsar tu negocio con confianza.
+    </p>
+    <!-- Orden según el diseño: 1) Rentability; 2) Presence; 3) Group -->
+    <div class="section">
+      <img src="site_images/Rentability.png" alt="Genera más rentabilidad">
+      <h2>Genera más rentabilidad</h2>
+      <p>
+        Creamos estrategias orientadas a optimizar tus recursos y aumentar tus ingresos de manera sostenible.
+      </p>
+    </div>
+    <div class="section">
+      <img src="site_images/presence.png" alt="Aumenta tu presencia">
+      <h2>Aumenta tu presencia</h2>
+      <p>
+        Fortalecemos tu imagen de marca y alcance digital, logrando que tu negocio destaque ante la competencia.
+      </p>
+    </div>
+    <div class="section">
+      <img src="site_images/Group.png" alt="Trabajamos codo a codo contigo">
+      <h2>Trabajamos codo a codo contigo</h2>
+      <p>
+        Brindándote atención personalizada y soluciones diseñadas a tu medida.
+      </p>
+    </div>
+  </div>
+  
+  <!-- ============================ -->
+  <!-- KIT DE FONT AWESOME -->
+  <!-- ============================ -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

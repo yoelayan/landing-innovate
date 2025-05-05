@@ -1,47 +1,183 @@
-<!-- Preguntas Frecuentes -->
-<div class="text-center mt-5 mb-4">
-    <h2 class="fw-bold">PREGUNTAS FRECUENTES</h2>
-    <p class="text-muted">Busca a través de estos FAQs para encontrar la respuesta a preguntas comunes.</p>
-</div>
-<div class="accordion" id="faqAccordion">
-    <!-- Pregunta 1 -->
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="faq1">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                ¿Qué precios manejan?
-            </button>
-        </h2>
-        <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-                Nuestros precios varían según el servicio. Contáctanos para obtener una cotización personalizada.
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Responsive - Estilo Moderno</title>
+  <style>
+    :root {
+      --accent-color: #2d2742;
+      --accent-hover: #3e365a;
+      --background: #333;
+      --card-bg: #444;
+      --text-light: #fff;
+      --text-dark: #000;
+      --transition-speed: 0.3s;
+    }
+
+    /* Estilos Globales */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Contenedor principal FAQ */
+    .faq-container {
+      background-color: var(--card-bg);
+      max-width: 1400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px  #2d2742;
+      padding: 20px;
+    }
+
+    .faq-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .faq-title h1 {
+      font-size: 2em;
+      margin: 0;
+      color: var(--text-light);
+    }
+    .faq-title p {
+      color: var(--text-light);
+      font-size: 1em;
+      margin: 10px 0 20px;
+    }
+
+    /* Estilos para cada ítem del acordeón */
+    .accordion {
+      background-color: var(--accent-color);
+      color: var(--text-light);
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 1em;
+      border-radius: 4px;
+      margin-top: 5px;
+      transition: background-color var(--transition-speed);
+      position: relative;
+    }
+    .accordion:hover,
+    .accordion.active {
+      background-color: var(--accent-hover);
+    }
+    /* Ícono de la flecha en el acordeón */
+    .accordion:after {
+      content: "\002B"; /* Código Unicode para el símbolo + */
+      font-size: 1.2em;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform var(--transition-speed);
+    }
+    .accordion.active:after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    /* Estilos de los paneles (respuestas) */
+    .panel {
+      background-color: #fff;
+      color: var(--text-dark);
+      border-radius: 0 0 4px 4px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height var(--transition-speed) ease-out;
+      padding: 0 18px;
+    }
+    .panel p {
+      margin: 15px 0;
+    }
+
+    /* Ajustes responsive */
+    @media screen and (max-width: 600px) {
+      .faq-container {
+        padding: 15px;
+      }
+      .faq-title h1 {
+        font-size: 1.5em;
+      }
+      .faq-title p {
+        font-size: 0.9em;
+      }
+      .accordion {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .accordion:after {
+        right: 15px;
+      }
+      .panel {
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="faq-container">
+    <div class="faq-title">
+      <h1>PREGUNTAS FRECUENTES</h1>
+      <p>Encuentra respuestas a las preguntas más comunes</p>
     </div>
-    <!-- Pregunta 2 -->
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="faq2">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                ¿Cuánto tiempo toma un proyecto?
-            </button>
-        </h2>
-        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-                El tiempo depende de la complejidad del proyecto. Por lo general, los proyectos pequeños toman entre 2 y 4 semanas.
-            </div>
-        </div>
+
+    <button class="accordion">¿Qué precios manejan?</button>
+    <div class="panel">
+      <p>Respuesta a la pregunta sobre precios. Aquí puedes incluir información detallada sobre tarifas, promociones o descuentos.</p>
     </div>
-    <!-- Pregunta 3 -->
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="faq3">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                ¿Ofrecen soporte técnico?
-            </button>
-        </h2>
-        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-                Sí, ofrecemos soporte técnico continuo para garantizar el correcto funcionamiento de nuestros servicios.
-            </div>
-        </div>
+    
+    <button class="accordion">¿Qué métodos de pago aceptan?</button>
+    <div class="panel">
+      <p>Aceptamos diversos métodos de pago, incluyendo tarjetas de crédito, débito, transferencias y más.</p>
     </div>
-</div>
-</div>
+    
+    <button class="accordion">¿Cuánto tiempo tarda el envío?</button>
+    <div class="panel">
+      <p>Consulta los tiempos de entrega de nuestros productos o servicios, junto con información sobre la logística de envío.</p>
+    </div>
+    
+    <button class="accordion">¿Ofrecen garantía en sus productos?</button>
+    <div class="panel">
+      <p>Contamos con garantías que respaldan nuestros productos. Revisa las condiciones y duraciones específicas que ofrecemos.</p>
+    </div>
+    
+    <button class="accordion">¿Cómo puedo hacer un seguimiento de mi pedido?</button>
+    <div class="panel">
+      <p>A través de nuestro sitio web, podrás realizar el seguimiento de tu pedido con el número de rastreo proporcionado.</p>
+    </div>
+    
+    <button class="accordion">¿Tienen algún programa de fidelidad o descuentos para clientes recurrentes?</button>
+    <div class="panel">
+      <p>Disponemos de programas de fidelización y beneficios especiales para clientes frecuentes. Conoce más sobre nuestras promociones.</p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript para controlar la apertura de los paneles con animación
+    var accordions = document.getElementsByClassName("accordion");
+
+    for (var i = 0; i < accordions.length; i++) {
+      accordions[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

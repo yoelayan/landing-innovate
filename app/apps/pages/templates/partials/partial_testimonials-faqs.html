@@ -1,102 +1,313 @@
-<section id="testimonials-faqs" class="py-5">
-    <div class="container">
-        <!-- Testimonios -->
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">TESTIMONIOS</h2>
-            <p class="text-muted">Clientes satisfechos con nuestras soluciones.</p>
-        </div>
-        <div class="row">
-            <!-- Testimonio 1 -->
-            <div class="col-md-3">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="mb-2">
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                        <h5 class="card-title">Review title</h5>
-                        <p class="card-text">Review body</p>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <img src="" alt="Reviewer" class="rounded-circle me-2" width="40">
-                            <div>
-                                <p class="mb-0">Reviewer name</p>
-                                <small class="text-muted">Date</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Testimonio 2 -->
-            <div class="col-md-3">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="mb-2">
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                        <h5 class="card-title">Review title</h5>
-                        <p class="card-text">Review body</p>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <img src="" alt="Reviewer" class="rounded-circle me-2" width="40">
-                            <div>
-                                <p class="mb-0">Reviewer name</p>
-                                <small class="text-muted">Date</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Testimonio 3 -->
-            <div class="col-md-3">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="mb-2">
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                        <h5 class="card-title">Review title</h5>
-                        <p class="card-text">Review body</p>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <img src="" alt="Reviewer" class="rounded-circle me-2" width="40">
-                            <div>
-                                <p class="mb-0">Reviewer name</p>
-                                <small class="text-muted">Date</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Testimonio 4 -->
-            <div class="col-md-3">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <div class="mb-2">
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                        <h5 class="card-title">Review title</h5>
-                        <p class="card-text">Review body</p>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <img src="" alt="Reviewer" class="rounded-circle me-2" width="40">
-                            <div>
-                                <p class="mb-0">Reviewer name</p>
-                                <small class="text-muted">Date</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-<section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Testimonios y Agregar Review</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      margin: 0;
+      padding: 1rem;
+    }
+    h2, h3 {
+      text-align: center;
+    }
+    /* Sección de testimonios */
+    #testimonios {
+      background: #f5f5f5;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 2rem;
+      padding-left: 50px;
+    }
+    .testimonial-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      max-width: 350px;
+      width: 100%;
+      text-align: left;
+    }
+    .reviewer-profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ddd;
+    }
+    .rating .star {
+      color: #ffcc00;
+      font-size: 1.2rem;
+    }
+    .review-title {
+      margin: 0.5rem 0;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .review-body {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .reviewer-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #999;
+    }
+    /* Botón para mostrar/ocultar el formulario, ubicado justo debajo de las reviews */
+    #toggleForm {
+      display: block;
+      margin: 1rem auto 0 auto;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      background: #2d2742;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    /* Sección del formulario para agregar review: inicialmente oculta */
+    #agregar-testimonio {
+      max-width: 500px;
+      background: #fff;
+      padding: 2rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 2rem auto;
+      display: none;
+    }
+    #agregar-testimonio form input,
+    #agregar-testimonio form textarea,
+    #agregar-testimonio form select,
+    #agregar-testimonio form button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    #agregar-testimonio form label {
+      margin-bottom: 0.5rem;
+      display: block;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sección de Testimonios -->
+  <section id="testimonios">
+    <h2 class="section-title">TESTIMONIOS</h2>
+    <p class="section-subtitle">Clientes satisfechos con nuestras soluciones.</p>
+    <h3>Últimas Reviews</h3>
+    <div class="testimonial-cards" id="testimonialCards">
+      <!-- Las reviews se insertarán dinámicamente aquí -->
+    </div>
+    <!-- Botón ubicado justo debajo de las reviews -->
+    <button id="toggleForm">Agregar Review</button>
+  </section>
+
+  <!-- Sección para Agregar Review -->
+  <section id="agregar-testimonio">
+    <h2>Agregar Testimonio</h2>
+    <form id="testimonialForm">
+      <label for="reviewer_name">Nombre del Revisor:</label>
+      <input type="text" id="reviewer_name" required>
+
+      <label for="profile_pic">Foto de Perfil:</label>
+      <input type="file" id="profile_pic" accept="image/*">
+
+      <label for="rating">Calificación:</label>
+      <select id="rating" required>
+        <option value="1">1 estrella</option>
+        <option value="2">2 estrellas</option>
+        <option value="3">3 estrellas</option>
+        <option value="4">4 estrellas</option>
+        <option value="5" selected>5 estrellas</option>
+      </select>
+
+      <label for="title">Título del Testimonio:</label>
+      <input type="text" id="title" required>
+
+      <label for="body">Testimonio:</label>
+      <textarea id="body" rows="5" required></textarea>
+
+      <label for="date">Fecha:</label>
+      <input type="date" id="date" required>
+
+      <button type="submit">Guardar Testimonio</button>
+    </form>
+  </section>
+
+  <script>
+    // Arreglo de reviews predeterminadas (según la imagen de ejemplo)
+    const testimonials = [
+      {
+        profile_pic_url: 'uploads/juan.jpg',
+        rating: 5,
+        title: 'Excelente Servicio',
+        body: 'Me ayudaron a impulsar mi negocio, la atención fue impecable.',
+        reviewer_name: 'Juan Pérez',
+        date: '2025-04-28'
+      },
+      {
+        profile_pic_url: 'uploads/maria.jpg',
+        rating: 4,
+        title: 'Muy recomendable',
+        body: 'La solución ofrecida cumplió todas mis expectativas.',
+        reviewer_name: 'María García',
+        date: '2025-04-25'
+      },
+      {
+        profile_pic_url: 'uploads/carlos.jpg',
+        rating: 5,
+        title: 'Increíble experiencia',
+        body: 'El equipo fue muy profesional y la solución era exactamente lo que necesitaba.',
+        reviewer_name: 'Carlos López',
+        date: '2025-04-20'
+      }
+    ];
+
+    const testimonialCards = document.getElementById('testimonialCards');
+    const toggleFormButton = document.getElementById('toggleForm');
+    const formSection = document.getElementById('agregar-testimonio');
+
+    // Función para crear una tarjeta de review a partir de un objeto
+    function createTestimonialCard(testimonial) {
+      const card = document.createElement('div');
+      card.className = 'testimonial-card';
+
+      const profileDiv = document.createElement('div');
+      profileDiv.className = 'reviewer-profile';
+      const img = document.createElement('img');
+      img.src = testimonial.profile_pic_url;
+      img.alt = `Foto de ${testimonial.reviewer_name}`;
+      profileDiv.appendChild(img);
+      card.appendChild(profileDiv);
+
+      const contentDiv = document.createElement('div');
+      contentDiv.className = 'testimonial-content';
+
+      // Calificación (estrellas)
+      const ratingDiv = document.createElement('div');
+      ratingDiv.className = 'rating';
+      for (let i = 0; i < testimonial.rating; i++) {
+        const star = document.createElement('span');
+        star.className = 'star';
+        star.innerHTML = '&#9733;';
+        ratingDiv.appendChild(star);
+      }
+      contentDiv.appendChild(ratingDiv);
+
+      // Título de la review
+      const reviewTitle = document.createElement('h4');
+      reviewTitle.className = 'review-title';
+      reviewTitle.textContent = testimonial.title;
+      contentDiv.appendChild(reviewTitle);
+
+      // Cuerpo del testimonio
+      const reviewBody = document.createElement('p');
+      reviewBody.className = 'review-body';
+      reviewBody.textContent = testimonial.body;
+      contentDiv.appendChild(reviewBody);
+
+      // Información del revisor y fecha
+      const reviewerInfoDiv = document.createElement('div');
+      reviewerInfoDiv.className = 'reviewer-info';
+      const reviewerNameSpan = document.createElement('span');
+      reviewerNameSpan.className = 'reviewer-name';
+      reviewerNameSpan.textContent = testimonial.reviewer_name;
+      reviewerInfoDiv.appendChild(reviewerNameSpan);
+      const reviewDateSpan = document.createElement('span');
+      reviewDateSpan.className = 'review-date';
+      reviewDateSpan.textContent = testimonial.date;
+      reviewerInfoDiv.appendChild(reviewDateSpan);
+      contentDiv.appendChild(reviewerInfoDiv);
+
+      card.appendChild(contentDiv);
+      return card;
+    }
+
+    // Función para renderizar todas las reviews en el DOM
+    function renderTestimonials() {
+      testimonialCards.innerHTML = "";
+      testimonials.forEach(testimonial => {
+        const card = createTestimonialCard(testimonial);
+        testimonialCards.appendChild(card);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", renderTestimonials);
+
+    // Toggle para mostrar u ocultar el formulario de agregar review
+    toggleFormButton.addEventListener('click', () => {
+      if(formSection.style.display === '' || formSection.style.display === 'none'){
+        formSection.style.display = 'block';
+        toggleFormButton.textContent = 'Ocultar Formulario';
+      } else {
+        formSection.style.display = 'none';
+        toggleFormButton.textContent = 'Agregar Review';
+      }
+    });
+
+    // Manejo del formulario para agregar una nueva review
+    document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Recoger datos del formulario
+      const reviewer_name = document.getElementById('reviewer_name').value;
+      const rating = parseInt(document.getElementById('rating').value);
+      const title = document.getElementById('title').value;
+      const body = document.getElementById('body').value;
+      const date = document.getElementById('date').value;
+      const profilePicInput = document.getElementById('profile_pic');
+      const defaultPic = 'uploads/default.jpg';
+
+      // Función para agregar el testimonio y actualizar la vista
+      function addTestimonial(imageURL) {
+        const newTestimonial = {
+          profile_pic_url: imageURL,
+          rating: rating,
+          title: title,
+          body: body,
+          reviewer_name: reviewer_name,
+          date: date
+        };
+        testimonials.unshift(newTestimonial);
+        renderTestimonials();
+        document.getElementById('testimonialForm').reset();
+        formSection.style.display = 'none';
+        toggleFormButton.textContent = 'Agregar Review';
+      }
+
+      // Si se seleccionó imagen, utilizar FileReader
+      if (profilePicInput.files && profilePicInput.files[0]) {
+        const file = profilePicInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          addTestimonial(event.target.result);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        addTestimonial(defaultPic);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <!-- Font Awesome para los íconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Canvas-Confetti para el efecto de partículas -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
     /* Reset y fuente global */
     * {
@@ -48,12 +50,18 @@
       font-size: 1.5rem;
       font-weight: 700;
       color: #800080;
+      cursor: pointer;
     }
     
     .navbar .logo img {
       height: 40px;
       width: auto;
       margin-left: 10px;
+      transition: transform 0.3s;
+    }
+    
+    .navbar .logo:hover img {
+      transform: scale(1.1);
     }
     
     /* Menú */
@@ -166,13 +174,13 @@
       <a href="#precios"><i class="fa-solid fa-layer-group"></i> Precios</a>
       <a href="#insight"><i class="fa-solid fa-chart-bar"></i> Insight</a>
     </div>
-    <a href="#contacto">
+    <a href="#contact">
       <button class="contact-btn">Contacto</button>
     </a>
   </nav>
-  
+
   <script>
-    // Agrega o quita la clase "scrolled" según el scroll (umbral de 100 píxeles)
+    // Cambio de estilo del navbar al hacer scroll
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
       if (window.scrollY > 100) {
@@ -181,6 +189,27 @@
         navbar.classList.remove('scrolled');
       }
     });
+
+    // Efecto de confetti explosivo al hacer clic en el contenedor del logo (texto e imagen)
+    const logoEl = document.querySelector(".logo");
+    if (logoEl) {
+      logoEl.addEventListener("click", (event) => {
+        // Se obtiene el rectángulo que define el contenedor del logo
+        const rect = logoEl.getBoundingClientRect();
+        // Se calcula el centro del logo
+        const originX = ((rect.left + rect.right) / 2) / window.innerWidth;
+        const originY = ((rect.top + rect.bottom) / 2) / window.innerHeight;
+        
+        // Llama a confetti con parámetros que generan un efecto de explosión en 360°
+        confetti({
+          particleCount: 100,
+          startVelocity: 55,
+          spread: 360,
+          origin: { x: originX, y: originY },
+          colors: ['#bb0000', '#ffffff', '#2d2742', '#f9c74f', '#90be6d']
+        });
+      });
+    }
   </script>
 </body>
 </html>
