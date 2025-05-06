@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Brand, Suscriptor, SiteImages, Messages, Review
+from .models import Brand, Suscriptor, SiteImages, Messages, Review, FAQ
 
 class BrandAdmin(admin.ModelAdmin):
     list_display = ("name", "order", "image_thumbnail")
@@ -46,17 +46,30 @@ class MessagesAdmin(admin.ModelAdmin):
 
 # Configuración para administrar Reviews
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ("brand", "suscriptor", "rating", "created_at")
-    search_fields = ("brand__name", "suscriptor__email")
+    list_display = ("name", "rating", "created_at")
+    search_fields = ("name", "comment")
     list_filter = ("rating", "created_at")
     readonly_fields = ("created_at",)
+    
+    def image_thumbnail(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" style="max-height: 50px; max-width: 50px;" />', obj.image.url)
+        return "No Image"
 
-    fieldsets = (
-        ("Información de la Reseña", {"fields": ("brand", "suscriptor", "rating", "comment", "created_at")}),
-    )
+    image_thumbnail.short_description = "Thumbnail"
+
+# Configuración para administrar FAQ
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ("question", "created_at")
+    search_fields = ("question", "answer")
+    list_filter = ("created_at",)
+    readonly_fields = ("created_at",)
+
+    
 
 admin.site.register(Brand, BrandAdmin)
 admin.site.register(Suscriptor, SuscriptorAdmin)
 admin.site.register(SiteImages, SiteImagesAdmin)
 admin.site.register(Messages, MessagesAdmin)
 admin.site.register(Review, ReviewAdmin)
+admin.site.register(FAQ, FAQAdmin)

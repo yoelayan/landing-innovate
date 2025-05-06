@@ -1,146 +1,94 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contáctanos - Trabajemos juntos</title>
-  <style>
-    /* Reset y estilos globales */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      line-height: 1.6;
-      color: #333;
-    }
-    /* Contenedor principal para el área de contacto */
-    .contact-container {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 2rem auto;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    /* Sección izquierda: Información visual y de contacto */
-    .contact-left {
-      flex: 1 1 400px;
-      background-color: #2d2742;
-      color: #fff;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-    }
-    .contact-left h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .contact-left p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-    .contact-left img.astronaut {
-      max-width: 100%;
-      height: auto;
-      border-radius: 5px;
-      margin-bottom: 1.5rem;
-    }
-    /* Sección derecha: Formulario de contacto */
-    .contact-right {
-      flex: 1 1 400px;
-      padding: 2rem;
-    }
-    .contact-right form {
-      width: 100%;
-    }
-    .contact-right form label {
-      display: block;
-      margin: 10px 0 5px;
-      font-weight: bold;
-    }
-    .contact-right form input,
-    .contact-right form select,
-    .contact-right form textarea {
-      width: 100%;
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-    .contact-right form textarea {
-      resize: vertical;
-    }
-    .contact-right form button {
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 4px;
-      background-color: #0d47a1;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .contact-right form button:hover {
-      background-color: #0b3c91;
-    }
-    /* Adaptación para pantallas pequeñas */
-    @media (max-width: 768px) {
-      .contact-container {
-        flex-direction: column;
-      }
-      .contact-left,
-      .contact-right {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="contact-container">
-    <!-- Sección izquierda: Información y elementos visuales -->
-    <div class="contact-left">
-      <div class="contact-heading">
-        <h2>CONTACTANOS</h2>
-        <p>Trabajemos juntos</p>
+{% load forms_helper %}
+<!-- CONTACT SECTION -->
+<section id="contact-section" class="contact-section py-5">
+  <div class="container">
+    <div class="row text-center mb-4">
+      <div class="col-12">
+        <h1 class="display-4 fw-bold">CONTÁCTANOS</h1>
+        <p class="lead">Si tienes alguna duda o consulta, no dudes en contactarnos.</p>
       </div>
-      <!-- Imagen del astronauta con la ruta actualizada -->
-      <img class="astronaut" src="site_images/contact.png" alt="Astronauta usando computadora">
     </div>
-    <!-- Sección derecha: Formulario de contacto -->
-    <div class="contact-right">
-      <form action="procesar_formulario.php" method="post">
-        <!-- Campo para el Nombre Completo -->
-        <label for="nombre">Nombre Completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Escribe aquí..." required>
-        <!-- Campo para el Email -->
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Escribe aquí..." required>
-        <!-- Campo para seleccionar el Servicio Interesado -->
-        <label for="servicio">Servicio Interesado</label>
-        <select id="servicio" name="servicio" required>
-          <option value="">Selecciona</option>
-          <option value="desarrollo-web">Desarrollo Web</option>
-          <option value="marketing-digital">Marketing Digital</option>
-          <option value="diseno-grafico">Diseño Gráfico</option>
-        </select>
-        <!-- Campo para escribir el Mensaje -->
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí..." required></textarea>
-        <!-- Botón de envío del formulario -->
-        <button type="submit">Solicitar Servicio</button>
-      </form>
+    
+    <div class="row g-5">
+      <!-- Left side: Contact image and info -->
+      <div class="col-lg-5">
+        <div class="contact-image-container mb-5">
+          <img src="{{ contact_image }}" alt="Astronauta en computadora" class="contact-astronaut-img">
+        </div>
+        
+        <div class="contact-info">
+          <div class="contact-info-item mb-4 d-flex align-items-center">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h5 class="mb-1">Email</h5>
+              <p class="mb-0">{{ contact_info.email }}</p>
+            </div>
+          </div>
+          
+          <div class="contact-info-item mb-4 d-flex align-items-center">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h5 class="mb-1">Teléfono</h5>
+              <p class="mb-0">{{ contact_info.phone }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right side: Contact form -->
+      <div class="col-lg-7">
+        <div class="contact-form-container">
+          <form method="post" action="{% url 'home' %}" class="contact-form">
+            {% csrf_token %}
+            
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label for="{{ contact_form.name.id_for_label }}" class="form-label">Nombre</label>
+                <input type="text" name="{{ contact_form.name.html_name }}" 
+                       id="{{ contact_form.name.id_for_label }}" 
+                       class="form-control" 
+                       placeholder="Escribe tu nombre...">
+              </div>
+              
+              <div class="col-md-6 mb-4">
+                <label for="{{ contact_form.email.id_for_label }}" class="form-label">Correo Electrónico</label>
+                <input type="email" name="{{ contact_form.email.html_name }}" 
+                       id="{{ contact_form.email.id_for_label }}" 
+                       class="form-control" 
+                       placeholder="Escribe tu email...">
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <label for="{{ contact_form.interest_service.id_for_label }}" class="form-label">Servicio de Interés</label>
+              <select name="{{ contact_form.interest_service.html_name }}" 
+                      id="{{ contact_form.interest_service.id_for_label }}" 
+                      class="form-select">
+                {% for value, text in contact_form.interest_service.field.choices %}
+                  <option value="{{ value }}">{{ text }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            
+            <div class="mb-4">
+              <label for="{{ contact_form.message.id_for_label }}" class="form-label">Mensaje</label>
+              <textarea name="{{ contact_form.message.html_name }}" 
+                        id="{{ contact_form.message.id_for_label }}" 
+                        class="form-control" 
+                        rows="5" 
+                        placeholder="Escribe tu mensaje..."></textarea>
+            </div>
+            
+            <div class="text-start">
+              <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-</body>
-</html>
+</section>

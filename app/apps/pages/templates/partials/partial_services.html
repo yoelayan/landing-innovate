@@ -1,78 +1,91 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Servicios</title>
-  <!-- Carga de Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
-        integrity="sha384-RXf+QSDCUQs6hJv6sw1hF0CyQJMQeF4XrA27w6nZPMo1C6xM/h4pEG7P9Dq2z85a" crossorigin="anonymous">
-  <style>
-    .text-morado {
-      color: #2d2742 !important;
-    }
-  </style>
-</head>
-<body>
-  <section id="services" class="py-5">
-    <div class="container">
-      <!-- Primer servicio: Marketing Digital -->
-      <div class="row align-items-center mb-5">
-        <div class="col-md-6">
-          <h2 class="fw-bold display-2 text-morado">{{ services_1.title|upper }}</h2>
-          <p class="display-3 text-morado">{{ services_1.subtitle }}</p>
-          <ul class="list-unstyled">
-            {% for card in services_1.cards %}
-              <li class="mb-3 text-morado">
-                <i class="{{ card.icon_prefix }} fa-{{ card.simple_icon }} fa-lg me-2 {{ card.icon_classes }} text-morado"></i>
-                <strong>{{ card.card_title }}:</strong> {{ card.card_text }}
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="apps/pages/templates/site_images/marketing.png" alt="" class="img-fluid">
+<!-- SECTION 1: MARKETING DIGITAL -->
+<section id="services" class="service-section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 service-content">
+        <h1 class="service-title">{{ services_1.title|upper }}</h1>
+        <p class="service-subtitle">{{ services_1.subtitle }}</p>
+        
+        <div class="service-items">
+          {% for card in services_1.cards %}
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="{{ card.card_icon }}"></i>
+            </div>
+            <div class="service-info">
+              <h3>{{ card.card_title }}</h3>
+              <p>{{ card.card_text }}</p>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
-
-      <!-- Segundo servicio: Desarrollo Web -->
-      <div class="row align-items-center mb-5">
-        <div class="col-md-6 order-md-2">
-          <h2 class="fw-bold display-2 text-morado">{{ services_2.title|upper }}</h2>
-          <p class="display-3 text-morado">{{ services_2.subtitle }}</p>
-          <ul class="list-unstyled">
-            {% for card in services_2.cards %}
-              <li class="mb-3 text-morado">
-                <i class="{{ card.icon_prefix }} fa-{{ card.simple_icon }} fa-lg me-2 {{ card.icon_classes }} text-morado"></i>
-                <strong>{{ card.card_title }}:</strong> {{ card.card_text }}
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="col-md-6 order-md-1 text-center">
-          <img src="apps/pages/templates/site_images/web.png" alt="" class="img-fluid">
-        </div>
+      
+      <div class="col-lg-6 service-image-container">
+        <img src="{{ marketing_image }}" alt="{{ services_1.title }}" class="astronaut-img">
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Tercer servicio: Diseño Gráfico -->
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <h2 class="fw-bold display-2 text-morado">{{ services_3.title|upper }}</h2>
-          <p class="display-3 text-morado">{{ services_3.subtitle }}</p>
-          <ul class="list-unstyled">
-            {% for card in services_3.cards %}
-              <li class="mb-3 text-morado">
-                <i class="{{ card.icon_prefix }} fa-{{ card.simple_icon }} fa-lg me-2 {{ card.icon_classes }} text-morado"></i>
-                <strong>{{ card.card_title }}:</strong> {{ card.card_text }}
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="apps/pages/templates/site_images/graph.png" alt="" class="img-fluid">
+<!-- SECTION 2: DESARROLLO WEB -->
+<section class="service-section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 service-image-container order-lg-1 order-2">
+          <img src="{{ web_image }}" alt="{{ services_2.title }}" class="astronaut-img">
+      </div>
+      
+      <div class="col-lg-6 service-content order-lg-2 order-1 text-lg-right">
+        <h1 class="service-title">{{ services_2.title|upper }}</h1>
+        <p class="service-subtitle">{{ services_2.subtitle }}</p>
+        
+        <div class="service-items right-aligned">
+          {% for card in services_2.cards %}
+          <div class="service-item">
+            <div class="service-info">
+              <h3>{{ card.card_title }}</h3>
+              <p>{{ card.card_text }}</p>
+            </div>
+            <div class="service-icon">
+              <i class="fas fa-{{ card.card_icon }}"></i>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
-  </section>
-</body>
-</html>
+  </div>
+</section>
+
+<!-- SECTION 3: DISEÑO GRÁFICO -->
+<section class="service-section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 service-content">
+        <h1 class="service-title">{{ services_3.title|upper }}</h1>
+        <p class="service-subtitle">{{ services_3.subtitle }}</p>
+        
+        <div class="service-items">
+          {% for card in services_3.cards %}
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="fas fa-{{ card.card_icon }}"></i>
+            </div>
+            <div class="service-info">
+              <h3>{{ card.card_title }}</h3>
+              <p>{{ card.card_text }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="col-lg-6 service-image-container">
+        
+        <img src="{{ graph_image }}" alt="{{ services_3.title }}" class="astronaut-img">
+            
+      </div>
+    </div>
+  </div>
+</section>

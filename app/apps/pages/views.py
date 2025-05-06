@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 
 # Apps
-from .models import Brand, Suscriptor, SiteImages
+from .models import Brand, Suscriptor, SiteImages, Review, FAQ
 from apps.external_integrations.models import Integration
 from .forms import MessagesForm
 
@@ -61,19 +61,73 @@ class HomePageView(TemplateView):
         integrations_head = Integration.objects.filter(ubication="head")
 
         brands = Brand.objects.all()
+        
+        # Format reviews for the template
+        reviews_query = Review.objects.all().order_by('-created_at')
+        reviews = []
+        for review in reviews_query:
+            review_data = {
+                'name': review.name if review.name else 'Cliente Anónimo',
+                'rating': review.rating,
+                'comment': review.comment,
+                'image': review.image if review.image else None,
+            }
+            reviews.append(review_data)
+            
+        # Get and format FAQs for the template
+        faqs_query = FAQ.objects.all().order_by('created_at')
+        faqs = []
+        for i, faq in enumerate(faqs_query):
+            faq_data = {
+                'id': i + 1,  # For unique IDs in the accordion
+                'question': faq.question,
+                'answer': faq.answer,
+                'is_first': i == 0,  # First FAQ will be expanded
+            }
+            faqs.append(faq_data)
+            
+        # If no FAQs exist in the database, provide default ones
+        if not faqs:
+            faqs = [
+                {
+                    'id': 1,
+                    'question': '¿Qué servicios de marketing digital ofrecen?',
+                    'answer': 'Ofrecemos una gama completa de servicios de marketing digital que incluyen gestión de redes sociales, posicionamiento SEO, campañas SEM, email marketing, marketing de contenidos y mucho más. Nuestro enfoque se adapta a las necesidades específicas de tu negocio para maximizar resultados.',
+                    'is_first': True,
+                },
+                {
+                    'id': 2,
+                    'question': '¿Cuánto tiempo toma desarrollar un sitio web?',
+                    'answer': 'El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web informativo básico puede estar listo en 2-3 semanas, mientras que un e-commerce o un sitio con funcionalidades avanzadas puede tomar entre 1-3 meses. Tras nuestra consulta inicial, te proporcionaremos un cronograma detallado para tu proyecto específico.',
+                    'is_first': False,
+                },
+                {
+                    'id': 3,
+                    'question': '¿Cómo miden los resultados de sus campañas?',
+                    'answer': 'Utilizamos herramientas analíticas avanzadas para medir el rendimiento de todas nuestras campañas. Dependiendo de tus objetivos, podemos monitorear métricas como tráfico web, conversiones, engagement en redes sociales, posicionamiento en buscadores y ROI. Te proporcionamos informes periódicos detallados para que puedas ver cómo nuestras estrategias están impactando positivamente en tu negocio.',
+                    'is_first': False,
+                },
+                {
+                    'id': 4,
+                    'question': '¿Ofrecen servicios de mantenimiento web?',
+                    'answer': 'Sí, ofrecemos planes de mantenimiento web que incluyen actualizaciones de seguridad, copias de seguridad, correcciones de errores, actualizaciones de contenido y soporte técnico. Estos planes son personalizables según las necesidades de tu sitio y garantizan que tu presencia en línea se mantenga actualizada, segura y funcionando de manera óptima.',
+                    'is_first': False,
+                },
+            ]
+        
         format_brands = [
             {"src": brand.logo.url, "alt": brand.name} for brand in brands
         ]
         footer_description = "Somos una agencia de marketing digital, desarrollo web y diseño gráfico. <br> ¡Contáctanos y descubre cómo podemos ayudarte a alcanzar tus metas!"
         images = SiteImages.objects.all()
-        hero_image = images.filter(code="hero").first()
-        graph_image = images.filter(code="graph").first()
-        marketing_image = images.filter(code="marketing").first()
-        presence_image = images.filter(code="presence").first()
-        rentability_image = images.filter(code="rentability").first()
-        web_image = images.filter(code="web").first()
-        work_group_image = images.filter(code="work_group").first()
-        contact_image = images.filter(code="contact").first()
+        hero_image = images.filter(code="hero").first().image.url
+        graph_image = images.filter(code="graph").first().image.url
+        marketing_image = images.filter(code="marketing").first().image.url
+        presence_image = images.filter(code="presence").first().image.url
+        rentability_image = images.filter(code="rentability").first().image.url
+        web_image = images.filter(code="web").first().image.url
+        work_group_image = images.filter(code="work_group").first().image.url
+        contact_image = images.filter(code="contact").first().image.url
 
         contact_info = {
             "email": "holainnovate@innova7e.com",
@@ -159,7 +213,7 @@ class HomePageView(TemplateView):
                 {
                     "icon_classes": "bg-primary",
                     "icon_color": "white",
-                    "card_icon": "brand-instagram",
+                    "card_icon": "fa-brands fa-instagram",
                     "card_title": "Gestión de Marca",
                     "axis": "horizontal",
                     "card_text": "Potencia la reputación de tu negocio aplicando estrategias que refuercen su presencia e impacto en el mercado.",
@@ -167,7 +221,7 @@ class HomePageView(TemplateView):
                 {
                     "icon_classes": "bg-primary",
                     "icon_color": "white",
-                    "card_icon": "camera",
+                    "card_icon": "fas fa-camera",
                     "card_title": "Video Marketing",
                     "axis": "horizontal",
                     "card_text": "Conecta con tu audiencia de forma auténtica a través de contenidos audiovisuales cautivadores que cuentan tu historia.",
@@ -175,7 +229,7 @@ class HomePageView(TemplateView):
                 {
                     "icon_classes": "bg-primary",
                     "icon_color": "white",
-                    "card_icon": "heart",
+                    "card_icon": "fas fa-heart",
                     "card_title": "Branding",
                     "axis": "horizontal",
                     "card_text": "Diseña la esencia de tu negocio al crear valores, identidad visual y voz propia, logrando una conexión emocional con tu público.",
@@ -189,7 +243,7 @@ class HomePageView(TemplateView):
                 {
                     "icon_classes": "bg-primary",
                     "icon_color": "white",
-                    "card_icon": "world-www",
+                    "card_icon": "globe",
                     "axis": "horizontal",
                     "is_reverse": True,
                     "card_title": "Páginas Web",
@@ -238,7 +292,7 @@ class HomePageView(TemplateView):
                 {
                     "icon_classes": "bg-primary",
                     "icon_color": "white",
-                    "card_icon": "printer",
+                    "card_icon": "print",
                     "axis": "horizontal",
                     "card_title": "Gigantografía",
                     "card_text": "Maximiza tu visibilidad con impresiones de gran formato que capten la atención de todos a gran distancia.",
@@ -278,6 +332,8 @@ class HomePageView(TemplateView):
                 "contact_form": contact_form,
                 "integrations_footer": integrations_footer,
                 "integrations_head": integrations_head,
+                "reviews": reviews,
+                "faqs": faqs,
             }
         )
 

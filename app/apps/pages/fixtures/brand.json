@@ -1,0 +1,202 @@
+
+[
+    {
+        "model": "pages.brand",
+        "pk": 1,
+        "fields": {
+            "name": "3m",
+            "order": 1,
+            "logo": "brands/3m.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 2,
+        "fields": {
+            "name": "Anectodaria inmobiliria",
+            "order": 2,
+            "logo": "brands/Anectodaria_inmobiliria.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 3,
+        "fields": {
+            "name": "Area",
+            "order": 3,
+            "logo": "brands/Area.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 4,
+        "fields": {
+            "name": "Bancrecer",
+            "order": 4,
+            "logo": "brands/bancrecer.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 5,
+        "fields": {
+            "name": "Camara Immobiliaria",
+            "order": 5,
+            "logo": "brands/Camara_Immobiliaria.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 6,
+        "fields": {
+            "name": "Candelaria Carre Club",
+            "order": 6,
+            "logo": "brands/Candelaria_Carre_Club.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 7,
+        "fields": {
+            "name": "Century 21",
+            "order": 7,
+            "logo": "brands/century21.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 8,
+        "fields": {
+            "name": "Cyberella",
+            "order": 8,
+            "logo": "brands/Cyberella.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 9,
+        "fields": {
+            "name": "Digital Green",
+            "order": 9,
+            "logo": "brands/Digital_Green.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 10,
+        "fields": {
+            "name": "Great Place To Work",
+            "order": 10,
+            "logo": "brands/Great_Place_To_Work.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 11,
+        "fields": {
+            "name": "GrupL",
+            "order": 11,
+            "logo": "brands/GrupL.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 12,
+        "fields": {
+            "name": "Grupo Eres",
+            "order": 12,
+            "logo": "brands/Grupo_Eres.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 13,
+        "fields": {
+            "name": "Holtic",
+            "order": 13,
+            "logo": "brands/Holtic.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 14,
+        "fields": {
+            "name": "Inmobiliaria de Freitas",
+            "order": 14,
+            "logo": "brands/Inmobiliaria_de_freitas.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 15,
+        "fields": {
+            "name": "Kingo",
+            "order": 15,
+            "logo": "brands/Kingo.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 16,
+        "fields": {
+            "name": "La Dentaleria",
+            "order": 16,
+            "logo": "brands/La_dentaleria.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 17,
+        "fields": {
+            "name": "Od Stephany Mavare",
+            "order": 17,
+            "logo": "brands/Od_Stephany_Mavare.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 18,
+        "fields": {
+            "name": "Ophelio",
+            "order": 18,
+            "logo": "brands/Ophelio.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 19,
+        "fields": {
+            "name": "Pagolisto",
+            "order": 19,
+            "logo": "brands/Pagolisto.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 20,
+        "fields": {
+            "name": "Rochi",
+            "order": 20,
+            "logo": "brands/Rochi.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 21,
+        "fields": {
+            "name": "Tauro I",
+            "order": 21,
+            "logo": "brands/Tauro_I.png"
+        }
+    },
+    {
+        "model": "pages.brand",
+        "pk": 22,
+        "fields": {
+            "name": "Triple Gordo",
+            "order": 22,
+            "logo": "brands/Triple_Gordo.png"
+        }
+    }
+
+]

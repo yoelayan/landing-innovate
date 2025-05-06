@@ -1,21 +1,29 @@
-<section id="benefits" class="py-5 text-white" style="background-color: #2d2742;">
-  <div class="container text-center">
-    <title class="display-5">
-      AHORRA TIEMPO Y DINERO CON NOSOTROS.
-    </title>
+<section id="benefits" class="benefits-section py-5" style="background-color: #2d2742;">
+  <div class="container text-center py-5">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h1 class="text-white fw-bold text-uppercase" style="font-size: 3.5rem; letter-spacing: 1px;">AHORRA TIEMPO Y DINERO CON</h1>
+        <h1 class="text-white fw-bold text-uppercase" style="font-size: 3.5rem; letter-spacing: 1px;">NOSOTROS.</h1>
+      </div>
+    </div>
     
-    <subttitle class="display-6">
-      Empieza a fortalecer tu presencia en el mercado y cuenta con el respaldo de nuestro equipo especializado.
-    </subttitle>
     <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <p class="text-white lead">
+          Empieza a fortalecer tu presencia en el mercado y cuenta con el respaldo de nuestro equipo especializado.
+        </p>
+      </div>
+    </div>
+    
+    <div class="row mt-5 pt-4 justify-content-center">
       {% for feature in features_3 %}
-      <div class="col-md-6 col-sm-12 mb-4">
+      <div class="col-md-6 col-lg-6 mb-5">
         <div class="d-flex flex-column align-items-center">
-          <!-- Título y subtítulo de la feature -->
-          <h5 class="fw-bold">{{ feature.card_title }}</h5>
-          <p class="text-center">{{ feature.card_text }}</p>
-          <!-- Ícono que ahora se muestra debajo -->
-          <i class="fas fa-{{ feature.card_icon }} fa-3x mb-3"></i>
+          <div class="icon-container mb-4">
+            <i class="fas fa-{{ feature.card_icon }}" aria-hidden="true"></i>
+          </div>
+          <h5 class="feature-title fw-bold mb-3">{{ feature.card_title }}</h5>
+          <p class="feature-text">{{ feature.card_text }}</p>
         </div>
       </div>
       {% endfor %}

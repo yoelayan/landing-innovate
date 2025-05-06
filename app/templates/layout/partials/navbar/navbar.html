@@ -1,215 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Navbar con Transición de Color</title>
-  <!-- Fuente Poppins para un toque moderno -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome para los íconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Canvas-Confetti para el efecto de partículas -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <style>
-    /* Reset y fuente global */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      background: linear-gradient(135deg, #ece9e6, #ffffff);
-      min-height: 200vh; /* Para efectos de scroll y demo */
-    }
-    
-    /* Estado inicial: navbar con fondo blanco muy transparente y textos morados */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: rgba(255, 255, 255, 0.2); /* Fondo muy transparente */
-      transition: background 0.5s ease, padding 0.5s ease, color 0.5s ease;
-      z-index: 1000;
-    }
-    
-    /* Logo: texto + imagen */
-    .navbar .logo {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #800080;
-      cursor: pointer;
-    }
-    
-    .navbar .logo img {
-      height: 40px;
-      width: auto;
-      margin-left: 10px;
-      transition: transform 0.3s;
-    }
-    
-    .navbar .logo:hover img {
-      transform: scale(1.1);
-    }
-    
-    /* Menú */
-    .navbar .menu {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-    
-    .navbar .menu a {
-      color: #800080;
-      text-decoration: none;
-      font-size: 1rem;
-      position: relative;
-      transition: color 0.3s, transform 0.3s;
-    }
-    
-    /* Línea inferior en hover */
-    .navbar .menu a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: currentColor;
-      transition: width 0.3s;
-    }
-    
-    .navbar .menu a:hover {
-      transform: translateY(-3px);
-      color: #9B30FF; /* Variación en hover */
-    }
-    
-    .navbar .menu a:hover::after {
-      width: 100%;
-      background: #9B30FF;
-    }
-    
-    /* Espacio entre ícono y texto */
-    .navbar .menu a i {
-      margin-right: 8px;
-    }
-    
-    /* Botón de Contacto */
-    .contact-btn {
-      background: transparent;
-      border: 2px solid #800080;
-      padding: 8px 16px;
-      color: #800080;
-      font-weight: 500;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s, border 0.3s;
-    }
-    
-    .contact-btn:hover {
-      background: rgba(128, 0, 128, 0.1);
-    }
-    
-    /* Estado "scrolled": navbar con fondo blanco sólido y el mismo color morado en los textos */
-    .navbar.scrolled {
-      background: #fff;
-      padding: 10px 50px;
-    }
-    
-    .navbar.scrolled .logo,
-    .navbar.scrolled .menu a {
-      color: #800080;
-    }
-    
-    .navbar.scrolled .menu a::after {
-      background: #800080;
-    }
-    
-    .navbar.scrolled .contact-btn {
-      border: 2px solid #800080;
-      color: #800080;
-    }
-    
-    .navbar.scrolled .contact-btn:hover {
-      background: rgba(128, 0, 128, 0.1);
-    }
-    
-    /* Estilos de secciones para demostración */
-    section {
-      min-height: 100vh;
-      padding: 120px 50px 50px;
-    }
-    
-    .section-container {
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      margin: 30px 0;
-      padding: 50px;
-    }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="logo">
-      Innova7e
-      <img src="/static/images/logo/icon-white.png" alt="Logo">
-    </div>
-    <div class="menu">
-      <a href="#acerca"><i class="fa-solid fa-house"></i> Acerca de</a>
-      <a href="#services"><i class="fa-solid fa-cube"></i> Soluciones</a>
-      <a href="#precios"><i class="fa-solid fa-layer-group"></i> Precios</a>
-      <a href="#insight"><i class="fa-solid fa-chart-bar"></i> Insight</a>
-    </div>
-    <a href="#contact">
-      <button class="contact-btn">Contacto</button>
+{% load static %}
+
+<!-- Fixed Transparent Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'images/logo/white.png' %}" alt="Logo" class="img-fluid logo-white">
+      <img src="{% static 'images/logo/black.png' %}" alt="Logo" class="img-fluid logo-dark">
     </a>
-  </nav>
-
-  <script>
-    // Cambio de estilo del navbar al hacer scroll
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Efecto de confetti explosivo al hacer clic en el contenedor del logo (texto e imagen)
-    const logoEl = document.querySelector(".logo");
-    if (logoEl) {
-      logoEl.addEventListener("click", (event) => {
-        // Se obtiene el rectángulo que define el contenedor del logo
-        const rect = logoEl.getBoundingClientRect();
-        // Se calcula el centro del logo
-        const originX = ((rect.left + rect.right) / 2) / window.innerWidth;
-        const originY = ((rect.top + rect.bottom) / 2) / window.innerHeight;
-        
-        // Llama a confetti con parámetros que generan un efecto de explosión en 360°
-        confetti({
-          particleCount: 100,
-          startVelocity: 55,
-          spread: 360,
-          origin: { x: originX, y: originY },
-          colors: ['#bb0000', '#ffffff', '#2d2742', '#f9c74f', '#90be6d']
-        });
-      });
-    }
-  </script>
-</body>
-</html>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto me-3 align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#hero-animation">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#benefits">Características</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#faqAccordion">FAQ</a>
+        </li>
+      </ul>
+      <a href="#contact-section" class="btn btn-primary">Contáctanos</a>
+    </div>
+  </div>
+</nav>
