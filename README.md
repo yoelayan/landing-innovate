@@ -1,4 +1,3 @@
-
 # landing-innova7e
 
 This is the repository for the landing page of Innova7e.
@@ -77,4 +76,22 @@ landing-innova7e
 5. Run the server:
    ```bash
    python manage.py runserver
-  
+   ```
+
+## Deployment on Railway
+
+### Environment Variables Required
+Set the following environment variables in Railway:
+
+- `SECRET_KEY`: Django secret key for security (required)
+- `DEBUG`: Set to 'False' for production (default is 'False')
+- `ALLOWED_HOSTS`: Comma-separated domains, e.g. '.railway.app,yourdomain.com' (default includes railway.app and localhost)
+- `DATABASE_URL`: Automatically set by Railway if you provision a PostgreSQL database
+- `PORT`: Automatically set by Railway
+
+### Deploy Steps
+1. Push your code to GitHub
+2. Connect your GitHub repository to Railway
+3. Railway will automatically build and deploy your application using the Dockerfile
+4. Provision a PostgreSQL database if needed
+5. Railway will automatically handle environment variables and deployment

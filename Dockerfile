@@ -11,13 +11,12 @@ COPY app/ .
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-ENV DEBUG 0
-
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Run gunicorn
-CMD gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+# Create a script to run migrations and start the server
+RUN echo '#!/bin/bash\npython manage.py migrate\ngunicorn config.wsgi:application --bind 0.0.0.0:$PORT' > /app/start.sh
+RUN chmod +x /app/start.sh
+
+# Run the script
+CMD ["/app/start.sh"]
