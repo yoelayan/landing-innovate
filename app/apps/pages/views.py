@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 
 # Apps
-from .models import Brand, Suscriptor, SiteImages, Review, FAQ
+from .models import Brand, Suscriptor, SiteImages, Review, FAQ,
 from apps.external_integrations.models import Integration
 from .forms import MessagesForm
 
@@ -297,32 +297,6 @@ class HomePageView(TemplateView):
                 },
             ],
         }
-
-        # Obtener todos los testimonios de la base de datos
-        testimonials = Testimonial.objects.all()
-
-        # Crear una lista para enviar al contexto
-        testimonials_data = []
-        for testimonial in testimonials:
-            testimonials_data.append({
-                'name': testimonial.name,
-                'image': testimonial.image.url if testimonial.image else None,
-                'score': testimonial.score,
-                'text': testimonial.text,
-                'created_at': testimonial.created_at, # Añadimos la fecha de creación
-            })
-
-        # Obtener todas las preguntas de la base de datos
-        questions = Question.objects.all()
-
-        # Crear una lista para enviar al contexto
-        questions_data = []
-        for question in questions:
-            questions_data.append({
-                'question_text': question.question_text,
-                'answer_text': question.answer_text,
-                'id': question.id,  # Necesario para el id del accordion
-            })
 
         # Update the context
         context.update(
