@@ -9,6 +9,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app/ .
 
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DEBUG=False
+ENV ALLOWED_HOSTS=localhost,127.0.0.1,.railway.app
+
 # Collect static files
 RUN python manage.py collectstatic --noinput
 

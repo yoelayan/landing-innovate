@@ -69,13 +69,23 @@ landing-innova7e
    ```bash
    pip install -r requirements.txt
    ```
-4. Run the migrations:
+4. Create a .env file in the root of the project:
    ```bash
-   python manage.py migrate
+   touch .env
    ```
-5. Run the server:
+   Add the following content to the .env file:
+   ```
+   SECRET_KEY=your-secret-key-here
+   DEBUG=True
+   ALLOWED_HOSTS=localhost,127.0.0.1
+   ```
+5. Run the migrations:
    ```bash
-   python manage.py runserver
+   python app/manage.py migrate
+   ```
+6. Run the server:
+   ```bash
+   python app/manage.py runserver
    ```
 
 ## Deployment on Railway
@@ -84,14 +94,19 @@ landing-innova7e
 Set the following environment variables in Railway:
 
 - `SECRET_KEY`: Django secret key for security (required)
-- `DEBUG`: Set to 'False' for production (default is 'False')
-- `ALLOWED_HOSTS`: Comma-separated domains, e.g. '.railway.app,yourdomain.com' (default includes railway.app and localhost)
+- `DEBUG`: Set to 'False' for production
+- `ALLOWED_HOSTS`: Comma-separated domains without spaces, e.g. 'localhost,127.0.0.1,.railway.app,yourdomain.com'
 - `DATABASE_URL`: Automatically set by Railway if you provision a PostgreSQL database
 - `PORT`: Automatically set by Railway
 
 ### Deploy Steps
 1. Push your code to GitHub
 2. Connect your GitHub repository to Railway
-3. Railway will automatically build and deploy your application using the Dockerfile
-4. Provision a PostgreSQL database if needed
-5. Railway will automatically handle environment variables and deployment
+3. Set up the required environment variables in Railway
+4. Railway will automatically build and deploy your application using the Dockerfile
+5. Provision a PostgreSQL database if needed
+
+### Notes
+- We're using django-environ for environment variable management
+- The application is configured to work with either SQLite or PostgreSQL automatically
+- Static files are collected during the Docker build process
