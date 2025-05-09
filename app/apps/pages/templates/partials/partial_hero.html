@@ -1,38 +1,86 @@
 <!-- Hero Section -->
 <section class="d-flex flex-column background-container" id="hero-animation">
   <div class="dynamic-background"></div>
-  <div id="landingHero" class="section-py pt-0 pb-0">
-      <div class="container">
-          <div id="desktopHero" class="section-py pb-0 d-none d-md-block">
-              <div class="row align-items-center gy-12">
-                  <div class="col-md-6 text-md-center">
-                      <div class="hero-text-box text-md-start">
-                          <h1 class="text-white display-lg-3 display-md-5 display-sm-6 fw-extrabold">{{page_title}}</h1>
-                          <p class="h5 text-white mt-3">{{page_subtitle}}</p>
-                          <a href="#landingContact" class="btn btn-lg bg-primary text-white mt-3">Contactar</a>
-                      </div>
-                  </div>
-                  <div class="col-md-6 mt-5">
-                      <div class="hero-animation-img d-flex justify-content-center">
-                          <img class="w-100 hero-elements-img animation-img img-fluid" src="{{hero_image.image.url}}" alt="{{hero_image.alt}}" />
-                      </div>
-                  </div>
-              </div>
+  <!-- Se asigna padding-bottom: 10px para dejar el espacio deseado -->
+  <div id="landingHero" class="section-py w-100" style="z-index: 2; position: relative;">
+    <div class="container">
+      <!-- Versión para Desktop -->
+      <div id="desktopHero" class="section-py d-none d-md-block">
+        <div class="row align-items-start gy-12">
+          <div class="col-md-6">
+            <div class="hero-animation-img d-flex justify-content-center">
+              <img
+                class="w-100 hero-elements-img animation-img img-fluid"
+                src="{{hero_image}}"
+                alt="{{hero_image.alt}}"
+                style="max-height:500px; object-fit: contain;"
+              />
+            </div>
           </div>
-          <div id="mobileHero" class="section-py pb-0 d-md-none">
-              <div class="row align-items-center gy-12">
-                  <div class="col-md-12 text-md-center">
-                      <div class="d-flex flex-column hero-text-box text-md-start">
-                          <h1 class="text-white text-center display-6 display-md-5 display-sm-6 fw-extrabold">{{page_title}}</h1>
-                          <p class="text-center text-white mt-3">{{page_subtitle}}</p>
-                          <a href="#landingContact" class="btn bg-primary text-white mt-3">Contactar</a>
-                      </div>
-                  </div>
-                  <div class="d-flex justify-content-center">
-                      <img class="w-75 hero-elements-img animation-img img-fluid" src="{{hero_image.image.url}}" alt="{{hero_image.alt}}" />
-                  </div>
-              </div>
+          <div class="col-md-6 text-md-center">
+            <div class="hero-text-box text-md-start">
+              <h1
+                class="text-white display-lg-3 display-md-3 display-sm-6 fw-extrabold"
+              >
+                {{page_title}}
+              </h1>
+              <p class="h5 text-white mt-3">{{page_subtitle}}</p>
+              <a
+                href="#landingContact"
+                class="btn btn-primary btn-outline-light btn-lg mt-3"
+                >Contactar</a
+              >
+            </div>
           </div>
+        </div>
       </div>
+      <!-- Versión para Mobile -->
+      <div id="mobileHero" class="section-py d-md-none">
+        <div class="row align-items-start gy-12">
+          <div class="col-12 text-center">
+            <div class="hero-text-box mb-3">
+              <h1
+                class="text-white display-6 display-md-5 display-sm-6 fw-extrabold"
+              >
+                {{page_title}}
+              </h1>
+              <p class="text-white mt-3">{{page_subtitle}}</p>
+              <a
+                href="#landingContact"
+                class="btn btn-outline-secondary bg-primary text-white mt-3"
+                >Contactar</a
+              >
+            </div>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <div class="hero-animation-img d-flex justify-content-center">
+              <img
+                class="w-100 hero-elements-img animation-img img-fluid"
+                src="{{hero_image}}"
+                alt="{{hero_image.alt}}"
+                style="max-height:300px; object-fit: contain;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Clientes Swiper -->
+    <div class="clients-section w-100 mt-4 mt-md-5">
+      <div class="text-center">
+        <h3 class="text-white">LOS MEJORES CONFIARON EN NOSOTROS</h3>
+      </div>
+      <div class="swiper clients-swiper">
+        <div class="swiper-wrapper">
+          {% for brand in brands %}
+            <div class="swiper-slide text-center">
+              <div class="client-logo-wrapper">
+                <img src="{{ brand.src }}" alt="{{ brand.alt }}" class="client-logo img-fluid" />
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
   </div>
 </section>

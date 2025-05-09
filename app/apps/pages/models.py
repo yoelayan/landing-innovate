@@ -1,6 +1,4 @@
-# Create your models here.
 from django.db import models
-
 
 class Suscriptor(models.Model):
     email = models.EmailField(unique=True)
@@ -14,7 +12,6 @@ class Suscriptor(models.Model):
         verbose_name_plural = "Suscriptores"
         ordering = ["-created_at"]
 
-
 class Brand(models.Model):
     name = models.CharField(max_length=255)
     order = models.IntegerField(default=0)
@@ -27,13 +24,9 @@ class Brand(models.Model):
         ordering = ["order"]
         verbose_name = "Marca"
         verbose_name_plural = "Marcas"
-    
-    def format_dict(self):
-        return {
-            "src": self.logo.url,
-            "alt": self.name,
-        }
 
+    def format_dict(self):
+        return { "src": self.logo.url, "alt": self.name }
 
 class SiteImages(models.Model):
     name = models.CharField(max_length=255)
@@ -46,8 +39,7 @@ class SiteImages(models.Model):
 
     class Meta:
         verbose_name = "Imagen del sitio"
-        verbose_name_plural = "Imagenes del sitio"
-
+        verbose_name_plural = "Imágenes del sitio"
 
 class Messages(models.Model):
     SERVICES = [
@@ -55,6 +47,7 @@ class Messages(models.Model):
         ("web", "Desarrollo Web"),
         ("design", "Diseño Gráfico"),
     ]
+    
     name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField()
@@ -69,32 +62,26 @@ class Messages(models.Model):
         verbose_name_plural = "Mensajes"
         ordering = ["-created_at"]
 
-
-class Testimonial(models.Model):
-    name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="testimonials/", blank=True, null=True)
-    score = models.IntegerField(default=5)  # You can set a default score
-    text = models.TextField()
+# Nuevo modelo Review
+class Review(models.Model):
+    image = models.ImageField(upload_to="reviews/", null=True, blank=True)
+    name = models.CharField(max_length=255, null=True, blank=True)
+    rating = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)], default=5)  # Puntuación de 1 a 5
+    comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = "Testimonio"
-        verbose_name_plural = "Testimonios"
+        verbose_name = "Reseña"
+        verbose_name_plural = "Reseñas"
         ordering = ["-created_at"]
 
-
-class Question(models.Model):
-    question_text = models.CharField(max_length=255)
-    answer_text = models.TextField()
+class FAQ(models.Model):
+    question = models.CharField(max_length=255)
+    answer = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.question_text
-
-    class Meta:
-        verbose_name = "Pregunta"
-        verbose_name_plural = "Preguntas"
-        ordering = ["-created_at"]
+        return self.question

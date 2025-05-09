@@ -1,7 +1,7 @@
 .background-container {
   position: relative;
   width: 100%;
-  height: 894px; /* Ocupa toda la altura de la ventana */
+  min-height: 100vh; /* Ensure it covers the viewport height */
   overflow: hidden;
 }
 .dynamic-background {
@@ -9,12 +9,49 @@
   top: 0;
   left: 0;
   width: 100%;
+  filter: brightness(0.8);
   height: 100%;
   display: grid;
   grid-template-columns: repeat(10, 1fr); /* 10 columnas */
   grid-template-rows: repeat(5, 1fr);   /* 10 filas */
   z-index: 1; /* Fondo detrás del contenido */
 }
+.dynamic-background::before{
+      content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+@keyframes light-effect {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+.dynamic-background::after{
+      content: "";
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 100%;
+    background: radial-gradient(circle, #5d261a 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0.5;
+    z-index: 2;
+    animation: light-effect 20s linear infinite;
+}
+
 
 .dynamic-background .square {
   background-color: #2d2742;
@@ -23,4 +60,31 @@
   
   opacity: 1; /* Opacidad inicial */
   transition: opacity 0.8s ease-in-out; /* Transición suave */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .dynamic-background {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dynamic-background {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .dynamic-background {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  .dynamic-background::after {
+    width: 70vw;
+    height: 70vw;
+  }
 }

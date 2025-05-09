@@ -1,45 +1,108 @@
-
-{% load static %}
-<section id="services-benefits" class="py-5">
-    <div class="container">
-        <!-- Primera fila: Servicios -->
-        <div class="row text-center mb-5">
-            {% for service in features %}
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body">
-                            <i class="fas {{service.card_icon}} fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title fw-bold">{{service.card_title}}</h5>
-                            <p class="card-text">
-                                {{service.card_text}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+  <!-- ============================ -->
+  <!-- SECCIÓN DE SERVICIOS CON CARDS LADO A LADO (BOOTSTRAP) -->
+  <!-- ============================ -->
+  <section class="py-5" style="background-color: #2d2b43;">
+    <div class="container py-4">
+      
+      <div class="row g-4 px-md-5">
+        {% for feature in features %}
+        <div class="col-md-4">
+          <div class="card h-100 border-0 rounded-4 shadow">
+            <div class="card-body text-center p-4 p-md-5">
+              <div class="icon-circle mb-4">
+                <i class="fas {{ feature.card_icon }}" aria-hidden="true"></i>
+              </div>
+              <h3 class="card-title fw-bold mb-3 fs-4">{{ feature.card_title }}</h3>
+              <p class="card-text text-secondary mb-0">{{ feature.card_text }}</p>
+            </div>
+          </div>
         </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 
-        <!-- Título central -->
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">PROTEGE TUS INVERSIONES CON PRECISIÓN ABSOLUTA.</h2>
-            <p class="text-muted">
-                Nuestro equipo experto te ofrece asesoría personalizada, ayudándote a impulsar tu negocio con confianza.
-            </p>
+  <!-- ============================ -->
+  <!-- SECCIÓN DE CARACTERÍSTICAS CON ASTRONAUTAS -->
+  <!-- ============================ -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="row text-center mb-5">
+        <div class="col-12">
+          <h1 class="display-4 fw-bold text-uppercase">{{ features_2__title }}</h1>
+          <p class="lead mt-4">
+            {{ features_2__subtitle }}
+          </p>
         </div>
+      </div>
+      
+      <div class="row g-4 mt-5">
+        {% for feature in features_2 %}
+        <div class="col-lg-4 mb-4">
+          <div class="astronaut-card border-0 shadow h-100">
+            <div class="astronaut-img-container">
+              {% if feature.card_image %}
+              <img src="{{ feature.card_image }}" alt="{{ feature.card_title }}" class="astronaut-img">
+              {% endif %}
+            </div>
+            <div class="astronaut-content text-center">
+              <h3 class="fw-bold mb-3">{{ feature.card_title }}</h3>
+              <p class="mb-0">{{ feature.card_text }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 
-        <!-- Segunda fila: Beneficios -->
-        <div class="row text-center">
-            {% for feature in features_2 %}
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm">
-                        <img src="{{ feature.card_image }}" class="card-img-top" alt="{{ feature.card_title }}">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">{{ feature.card_title }}</h5>
-                            <p class="card-text">
-                                {{ feature.card_text }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+  <style>
+    .astronaut-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      background-color: white;
+    }
+    
+    .astronaut-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .astronaut-img-container {
+      height: 280px;
+      background-color: #2d2b43;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .astronaut-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .astronaut-card:hover .astronaut-img {
+      transform: scale(1.05);
+    }
+    
+    .astronaut-content {
+      background-color: white;
+      padding: 2rem 1.5rem;
+    }
+    
+    .astronaut-content h3 {
+      font-size: 1.5rem;
+      color: #2d2b43;
+    }
+    
+    .astronaut-content p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+  </style>
