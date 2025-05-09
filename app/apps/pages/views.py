@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 
 # Apps
-from .models import Brand, Suscriptor, SiteImages, Review, FAQ,
+from .models import Brand, Suscriptor, SiteImages, Review, FAQ
 from apps.external_integrations.models import Integration
 from .forms import MessagesForm
 
