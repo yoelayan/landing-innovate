@@ -26,7 +26,12 @@ env = environ.Env(
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Take environment variables from .env file if it exists
-environ.Env.read_env(os.path.join(BASE_DIR.parent, '.env'))
+env_path = os.environ.get('ENV_PATH', os.path.join(BASE_DIR.parent, '.env'))
+if os.path.exists(env_path):
+    print(f"Loading environment variables from: {env_path}")
+    environ.Env.read_env(env_path)
+else:
+    print(f"Warning: Environment file not found at: {env_path}")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
