@@ -28,7 +28,9 @@ ENV DJANGO_SUPERUSER_PASSWORD=admin_password
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
-
+# cargar fixtures
+RUN python manage.py loaddata app/apps/pages/fixtures/brand.json
+RUN python manage.py loaddata app/apps/pages/fixtures/site_images.json
 # Expose the port the app runs on
 EXPOSE 8000
 
