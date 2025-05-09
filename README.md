@@ -99,6 +99,15 @@ Set the following environment variables in Railway:
 - `DATABASE_URL`: Automatically set by Railway if you provision a PostgreSQL database
 - `PORT`: Automatically set by Railway
 
+### Superuser Credentials
+You can configure a default superuser to be created automatically on startup:
+
+- `DJANGO_SUPERUSER_USERNAME`: The username for the superuser (default: 'admin')
+- `DJANGO_SUPERUSER_EMAIL`: The email for the superuser (default: 'admin@example.com')
+- `DJANGO_SUPERUSER_PASSWORD`: The password for the superuser (default: 'admin_password')
+
+**IMPORTANT**: Be sure to change these default values in production!
+
 ### Deploy Steps
 1. Push your code to GitHub
 2. Connect your GitHub repository to Railway

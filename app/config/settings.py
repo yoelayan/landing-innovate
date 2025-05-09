@@ -41,6 +41,7 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 # Application definition
 LOCAL_APPS = [
+    "apps.core",
     "apps.pages",
     "apps.external_integrations",
 ]
