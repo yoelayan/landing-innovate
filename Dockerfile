@@ -15,17 +15,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app/ .
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV DEBUG=False
-ENV ALLOWED_HOSTS=localhost,127.0.0.1,.railway.app
-
-# Default superuser credentials - override these in production
-ENV DJANGO_SUPERUSER_USERNAME=admin
-ENV DJANGO_SUPERUSER_EMAIL=admin@example.com
-ENV DJANGO_SUPERUSER_PASSWORD=admin_password
-
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
