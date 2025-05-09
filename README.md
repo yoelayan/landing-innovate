@@ -99,6 +99,15 @@ Set the following environment variables in Railway:
 - `DATABASE_URL`: Automatically set by Railway if you provision a PostgreSQL database
 - `PORT`: Automatically set by Railway
 
+### Database Configuration
+The project is configured to use:
+- SQLite in development (default)
+- PostgreSQL in production (automatically detected via DATABASE_URL)
+
+PostgreSQL support is provided by:
+- psycopg2-binary (PostgreSQL adapter for Python)
+- dj-database-url (Database URL configuration parser)
+
 ### Superuser Credentials
 You can configure a default superuser to be created automatically on startup:
 

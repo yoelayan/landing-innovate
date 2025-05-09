@@ -96,6 +96,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# Default to SQLite
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -103,11 +104,21 @@ DATABASES = {
     }
 }
 
-# Use DATABASE_URL if provided
+# Use DATABASE_URL if provided (PostgreSQL in production)
 if env('DATABASE_URL', default=None):
-    DATABASES['default'] = env.db()
-    # Configure connection pooling for database
-    DATABASES['default']['CONN_MAX_AGE'] = env.int('DATABASE_CONN_MAX_AGE', default=60)
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=env('DATABASE_URL'),
+            conn_max_age=env.int('DATABASE_CONN_MAX_AGE', default=60),
+            conn_health_checks=True,
+        )
+    }
+    # Log that we're using PostgreSQL
+    print("Using PostgreSQL database")
+else:
+    # Log that we're using SQLite
+    print("Using SQLite database")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
