@@ -27,4 +27,4 @@ RUN apt-get update && apt-get install -y wait-for-it && rm -rf /var/lib/apt/list
 # Expose the port the app runs on
 EXPOSE 8000
 
-CMD ["/entrypoint.sh", "/start.sh"]
+CMD ["/start.sh"]
