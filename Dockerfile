@@ -24,9 +24,6 @@ RUN chmod +x /start.sh
 # Install wait-for-it script for database connection checking
 RUN apt-get update && apt-get install -y wait-for-it && rm -rf /var/lib/apt/lists/*
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
-
 # Expose the port the app runs on
 EXPOSE 8000
 
