@@ -108,13 +108,6 @@ PostgreSQL support is provided by:
 - psycopg2-binary (PostgreSQL adapter for Python)
 - dj-database-url (Database URL configuration parser)
 
-### Migration Management
-The project includes an automatic migration conflict resolution system:
-
-- A custom `resolve_migrations` command automatically detects and resolves conflicting migrations
-- The Docker container runs this command during startup to ensure database migrations apply correctly
-- This helps avoid common deployment issues with parallel development branches
-
 ### Superuser Credentials
 You can configure a default superuser to be created automatically on startup:
 

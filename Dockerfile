@@ -21,6 +21,24 @@ COPY compose/start.sh /start.sh
 RUN chmod +x /entrypoint.sh
 RUN chmod +x /start.sh
 
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV DEBUG=False
+ENV ALLOWED_HOSTS=localhost,127.0.0.1,.railway.app
+
+# Default database configuration (override these in production)
+ENV DATABASE_HOST=postgres.railway.internal
+ENV DATABASE_PORT=5432
+ENV DATABASE_NAME=railway
+ENV DATABASE_USER=postgres
+ENV DATABASE_PASSWORD=password
+
+# Default superuser credentials - override these in production
+ENV DJANGO_SUPERUSER_USERNAME=admin
+ENV DJANGO_SUPERUSER_EMAIL=admin@example.com
+ENV DJANGO_SUPERUSER_PASSWORD=admin_password
+
 # Install wait-for-it script for database connection checking
 RUN apt-get update && apt-get install -y wait-for-it && rm -rf /var/lib/apt/lists/*
 

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 import environ
+import dj_database_url
 
 # Initialize environ
 env = environ.Env(
@@ -96,29 +97,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# Default to SQLite
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 # Use DATABASE_URL if provided (PostgreSQL in production)
-if env('DATABASE_URL', default=None):
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=env('DATABASE_URL'),
-            conn_max_age=env.int('DATABASE_CONN_MAX_AGE', default=60),
-            conn_health_checks=True,
-        )
-    }
-    # Log that we're using PostgreSQL
-    print("Using PostgreSQL database")
-else:
-    # Log that we're using SQLite
-    print("Using SQLite database")
+DATABASES = {
+    'default': dj_database_url.config(
+        default=env('DATABASE_URL'),
+        conn_max_age=env.int('DATABASE_CONN_MAX_AGE', default=60),
+        conn_health_checks=True,
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
