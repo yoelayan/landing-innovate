@@ -3,8 +3,7 @@
 set -o errexit
 set -o pipefail
 set -o nounset
-# leer .env
-source .env
+source ../.env
 
 if [ -z "${POSTGRES_USER}" ]; then
     base_postgres_image_default_user='postgres'
