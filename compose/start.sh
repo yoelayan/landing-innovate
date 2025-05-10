@@ -10,6 +10,10 @@ python /app/manage.py migrate
 echo "Creating superuser if needed..."
 python /app/manage.py createsuperuser_env
 
+echo "loading fixtures..."
+python /app/manage.py loaddata apps/pages/fixtures/site_images.json
+python /app/manage.py loaddata apps/pages/fixtures/brand.json
+
 echo "Collecting static files..."
 python /app/manage.py collectstatic --noinput
 
