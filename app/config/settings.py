@@ -20,6 +20,7 @@ env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, ['localhost', '127.0.0.1']),
+    CSRF_TRUSTED_ORIGINS=(list, ['https://landing-innovate-production.up.railway.app']),
     SECRET_KEY=(str, 'django-insecure-default-key-for-dev'),
 )
 
@@ -40,6 +41,8 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = env('CSRF_TRUSTED_ORIGINS')
 
 # Application definition
 LOCAL_APPS = [
