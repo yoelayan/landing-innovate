@@ -1,0 +1,34 @@
+{% if messages %}
+<script>
+  $(document).ready(function() {
+    {% for message in messages %}
+      var messageType = '';
+      {% if message.tags == 'success' %}
+        messageType = 'success';
+      {% elif message.tags == 'error' %}
+        messageType = 'error';
+      {% elif message.tags == 'warning' %}
+        messageType = 'warning';
+      {% elif message.tags == 'info' %}
+        messageType = 'info';
+      {% else %}
+        messageType = 'info';
+      {% endif %}
+
+      // Configure toastr options
+      toastr.options = {
+        closeButton: true,
+        progressBar: true,
+        positionClass: "toast-top-right",
+        timeOut: 5000,
+        extendedTimeOut: 1000,
+        preventDuplicates: false,
+        newestOnTop: true
+      };
+
+      // Display the message using toastr
+      toastr[messageType]('{{ message }}');
+    {% endfor %}
+  });
+</script>
+{% endif %}

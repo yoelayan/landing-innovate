@@ -24,7 +24,7 @@ def suscriptor_process_form(request):
                 messages.error(request, "Ya te has suscrito antes")
             else:
                 messages.success(request, "Te has suscrito a nuestras noticias")
-    return redirect("landing-page")
+    return redirect("home")
 
 
 class HomePageView(TemplateView):
