@@ -1,31 +1,31 @@
 {% load static %}
 
 <!-- Fixed Transparent Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Navegación principal">
   <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="{% static 'images/logo/white.png' %}" alt="Logo" class="img-fluid logo-white">
-      <img src="{% static 'images/logo/black.png' %}" alt="Logo" class="img-fluid logo-dark">
+    <a class="navbar-brand" href="/" title="Innova7e - Inicio">
+      <img src="{% static 'images/logo/white.png' %}" alt="Logo de Innova7e - Agencia de Marketing Digital y Desarrollo Web" class="img-fluid logo-white">
+      <img src="{% static 'images/logo/black.png' %}" alt="Logo de Innova7e - Agencia de Marketing Digital y Desarrollo Web" class="img-fluid logo-dark">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar u ocultar navegación">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto me-3 align-items-center">
         <li class="nav-item">
-          <a class="nav-link" href="#hero-animation">Home</a>
+          <a class="nav-link" href="#hero-animation" title="Página de inicio">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#benefits">Características</a>
+          <a class="nav-link" href="#benefits" title="Características y beneficios">Características</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#services">Servicios</a>
+          <a class="nav-link" href="#services" title="Nuestros servicios de marketing, diseño y desarrollo">Servicios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#faqAccordion">FAQ</a>
+          <a class="nav-link" href="#faqAccordion" title="Preguntas frecuentes">FAQ</a>
         </li>
       </ul>
-      <a href="#contact-section" class="btn btn-primary">Contáctanos</a>
+      <a href="#contact-section" class="btn btn-primary" title="Contacta con nosotros">Contáctanos</a>
     </div>
   </div>
 </nav>

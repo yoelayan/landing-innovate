@@ -138,19 +138,19 @@ class HomePageView(TemplateView):
                 "extra_classes": "text-center shadow",
                 "card_icon": "fa-bullseye",
                 "card_title": "Análisis y Objetivos",
-                "card_text": "Realizamos un diagnóstico integral para definir metas claras, enfocadas en impulsar tu negocio y maximizar resultados.",
+                "card_text": "Realizamos un diagnóstico integral para definir metas claras, enfocadas en impulsar tu negocio y maximizar resultados.",
             },
             {
                 "extra_classes": "text-center shadow",
                 "card_icon": "fa-check-circle",
                 "card_title": "Estrategia e Implementación",
-                "card_text": "Diseñamos un plan de acción personalizado y lo ejecutamos de forma eficiente, priorizando cada tarea según su impacto.",
+                "card_text": "Diseñamos un plan de acción personalizado y lo ejecutamos de forma eficiente, priorizando cada tarea según su impacto.",
             },
             {
                 "extra_classes": "text-center shadow",
                 "card_icon": "fa-chart-line",
                 "card_title": "Medición y Optimización",
-                "card_text": "Analizamos los resultados para ajustar la estrategia, promoviendo una mejora continua y un mayor retorno de inversión.",
+                "card_text": "Analizamos los resultados para ajustar la estrategia, promoviendo una mejora continua y un mayor retorno de inversión.",
             },
         ]
         features_2 = [
@@ -298,10 +298,37 @@ class HomePageView(TemplateView):
             ],
         }
 
+        # SEO metadata
+        page_meta_description = "Potencia tu negocio con Innova7e, expertos en marketing digital, diseño gráfico y desarrollo web en Venezuela. Transformamos tu presencia online para aumentar ventas y visibilidad."
+        page_meta_keywords = "marketing digital venezuela, desarrollo web profesional, diseño web responsivo, gestión de redes sociales, seo, sem, posicionamiento web, agencia digital, innova7e"
+        
+        # Generate structured data for Services (used in Schema.org)
+        services_structured_data = []
+        for service in [
+            {"name": "Marketing Digital", "description": "Marketing Digital profesional para potenciar tu presencia en línea."},
+            {"name": "Desarrollo Web", "description": "Soluciones web a medida para tu negocio que convierten visitantes en clientes."},
+            {"name": "Diseño Gráfico", "description": "Diseños impactantes que comunican tu identidad de marca y cautivan a tu audiencia."}
+        ]:
+            services_structured_data.append({
+                "@type": "Service",
+                "name": service["name"],
+                "description": service["description"],
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Innova7e"
+                }
+            })
+
         # Update the context
         context.update(
             {
-
+                # SEO metadata
+                "page_meta_description": page_meta_description,
+                "page_meta_keywords": page_meta_keywords,
+                "page_og_image": hero_image,
+                "services_structured_data": services_structured_data,
+                
+                # Existing data
                 "navbar_full": True,
                 "active_url": self.request.path,
                 "page_title": "POTENCIA TU NEGOCIO Y DESTACA EN EL MUNDO DIGITAL",

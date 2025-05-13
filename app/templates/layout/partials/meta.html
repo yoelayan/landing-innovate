@@ -1,0 +1,109 @@
+{% load static %}
+<!-- Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{% if page_meta_description %}{{ page_meta_description }}{% else %}Potencia tu negocio con Innova7e. Expertos en marketing digital, diseño gráfico y desarrollo web en Venezuela. Servicios personalizados para aumentar tu presencia online y convertir visitantes en clientes.{% endif %}">
+<meta name="keywords" content="{% if page_meta_keywords %}{{ page_meta_keywords }}{% else %}marketing digital venezuela, diseño web, desarrollo web, diseño gráfico, seo, sem, posicionamiento web, redes sociales, estrategia digital, innova7e{% endif %}">
+<meta name="author" content="Innova7e">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:title" content="{% if page_title %}{{ page_title }} - Innova7e{% else %}Innova7e - Marketing Digital, Diseño y Desarrollo Web{% endif %}">
+<meta property="og:description" content="{% if page_meta_description %}{{ page_meta_description }}{% else %}Potencia tu negocio con Innova7e. Expertos en marketing digital, diseño gráfico y desarrollo web en Venezuela.{% endif %}">
+<meta property="og:image" content="{% if page_og_image %}{{ page_og_image }}{% else %}{% static 'images/og-image.jpg' %}{% endif %}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta property="twitter:title" content="{% if page_title %}{{ page_title }} - Innova7e{% else %}Innova7e - Marketing Digital, Diseño y Desarrollo Web{% endif %}">
+<meta property="twitter:description" content="{% if page_meta_description %}{{ page_meta_description }}{% else %}Potencia tu negocio con Innova7e. Expertos en marketing digital, diseño gráfico y desarrollo web en Venezuela.{% endif %}">
+<meta property="twitter:image" content="{% if page_og_image %}{{ page_og_image }}{% else %}{% static 'images/og-image.jpg' %}{% endif %}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+<!-- favicon -->
+<link rel="icon" href="{% static 'favicon.ico' %}">
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+
+<!-- Structured Data / Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Innova7e",
+  "url": "{{ request.build_absolute_uri }}",
+  "logo": "{% static 'images/logo/black.png' %}",
+  "description": "{% if page_meta_description %}{{ page_meta_description }}{% else %}Potencia tu negocio con Innova7e. Expertos en marketing digital, diseño gráfico y desarrollo web en Venezuela.{% endif %}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Venezuela"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+58 424 144 54 98",
+    "contactType": "customer service",
+    "email": "holainnovate@innova7e.com"
+  },
+  "sameAs": [
+    "https://instagram.com/innova7e",
+    "https://github.com/innova7e"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de Innova7e",
+    "itemListElement": [
+      {% if services_structured_data %}
+        {% for service in services_structured_data %}
+          {
+            "@type": "Service",
+            "name": "{{ service.name }}",
+            "description": "{{ service.description }}"
+          }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      {% else %}
+        {
+          "@type": "Service",
+          "name": "Marketing Digital",
+          "description": "Marketing Digital profesional para potenciar tu presencia en línea."
+        },
+        {
+          "@type": "Service",
+          "name": "Desarrollo Web",
+          "description": "Soluciones web a medida para tu negocio que convierten visitantes en clientes."
+        },
+        {
+          "@type": "Service",
+          "name": "Diseño Gráfico",
+          "description": "Diseños impactantes que comunican tu identidad de marca y cautivan a tu audiencia."
+        }
+      {% endif %}
+    ]
+  }
+}
+</script>
+
+<!-- FAQ Schema.org -->
+{% if faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in faqs %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.question }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.answer }}"
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %} 
