@@ -113,7 +113,7 @@ def send_subscription_admin_notification(suscriptor_obj, request=None):
     subject = "Nueva suscripción en Innova7e"
     
     # Build admin URL
-    admin_url = "https://admin.innova7e.com"
+    admin_url = "https://innova7e.com/admin/"
     if request:
         current_site = get_current_site(request)
         admin_url = f"https://{current_site.domain}{reverse('admin:pages_suscriptor_changelist')}"
@@ -151,7 +151,7 @@ def send_message_admin_notification(message_obj, request=None):
     interest_service_display = dict(message_obj.SERVICES).get(message_obj.interest_service, message_obj.interest_service)
     
     # Build admin URL
-    admin_url = "https://admin.innova7e.com"
+    admin_url = "https://innova7e.com/admin/"
     if request:
         current_site = get_current_site(request)
         admin_url = f"https://{current_site.domain}{reverse('admin:pages_messages_changelist')}"
