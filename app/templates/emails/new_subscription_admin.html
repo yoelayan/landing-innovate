@@ -1,0 +1,15 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}Nueva Suscripción | Innova7e{% endblock %}
+
+{% block header %}Nueva Suscripción{% endblock %}
+
+{% block content %}
+<h2>¡Tienes una nueva suscripción!</h2>
+<p>Se ha registrado una nueva suscripción en el sitio web de Innova7e.</p>
+<p><strong>Email:</strong> {{ email }}</p>
+<p><strong>Fecha:</strong> {{ created_at|date:"d/m/Y H:i" }}</p>
+<p>Esta suscripción ya ha sido registrada en la base de datos y se ha enviado un correo de confirmación al usuario.</p>
+<p>Puedes ver todas las suscripciones en el panel de administración.</p>
+<p><a href="{{ admin_url }}" class="button">Ir al Panel Admin</a></p>
+{% endblock %} 

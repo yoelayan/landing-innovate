@@ -1,0 +1,19 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}¡Gracias por contactarnos! | Innova7e{% endblock %}
+
+{% block header %}¡Gracias por contactarnos!{% endblock %}
+
+{% block content %}
+<h2>Hola {{ name }},</h2>
+<p>¡Gracias por ponerte en contacto con nosotros!</p>
+<p>Hemos recibido tu mensaje y queremos confirmarte que lo estamos revisando. Uno de nuestros especialistas se pondrá en contacto contigo lo antes posible para atender tu consulta sobre <strong>{{ interest_service_display }}</strong>.</p>
+<p>Para tu referencia, estos son los detalles de tu mensaje:</p>
+<ul>
+    <li><strong>Fecha de envío:</strong> {{ created_at|date:"d/m/Y H:i" }}</li>
+    <li><strong>Asunto:</strong> {{ interest_service_display }}</li>
+</ul>
+<p>Si necesitas proporcionar información adicional o tienes alguna otra pregunta mientras tanto, no dudes en responder a este correo.</p>
+<p>¡Apreciamos tu interés en Innova7e y esperamos poder ayudarte pronto!</p>
+<p>Saludos cordiales,<br>El equipo de Innova7e</p>
+{% endblock %} 

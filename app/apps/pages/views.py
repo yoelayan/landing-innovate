@@ -6,6 +6,12 @@ from django.contrib import messages
 from .models import Brand, Suscriptor, SiteImages, Review, FAQ
 from apps.external_integrations.models import Integration
 from .forms import MessagesForm
+from apps.core.email_utils import (
+    send_subscription_confirmation,
+    send_contact_confirmation,
+    send_subscription_admin_notification,
+    send_message_admin_notification
+)
 
 """
 This file is a view controller for multiple pages as a module.
@@ -19,7 +25,11 @@ def suscriptor_process_form(request):
         email = request.POST.get("email")
         if email:
             try:
-                Suscriptor.objects.create(email=email)
+                suscriptor = Suscriptor.objects.create(email=email)
+                # Send confirmation email to the subscriber
+                send_subscription_confirmation(email, request)
+                # Send notification to admin
+                send_subscription_admin_notification(suscriptor, request)
             except Exception:
                 messages.error(request, "Ya te has suscrito antes")
             else:
@@ -34,7 +44,13 @@ class HomePageView(TemplateView):
         form = MessagesForm(request.POST)
         if form.is_valid():
             messages.success(request, "Mensaje enviado correctamente")
-            form.save()
+            message_obj = form.save()
+            
+            # Send confirmation email to the user
+            send_contact_confirmation(message_obj, request)
+            
+            # Send notification to admin
+            send_message_admin_notification(message_obj, request)
         else:
             context = self.get_context_data(**kwargs)
             context.update(

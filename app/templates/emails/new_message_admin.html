@@ -1,0 +1,21 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}Nuevo Mensaje de Contacto | Innova7e{% endblock %}
+
+{% block header %}Nuevo Mensaje de Contacto{% endblock %}
+
+{% block content %}
+<h2>¡Has recibido un nuevo mensaje!</h2>
+<p>Se ha registrado un nuevo mensaje de contacto en el sitio web de Innova7e.</p>
+<p><strong>Nombre:</strong> {{ name }}</p>
+<p><strong>Email:</strong> {{ email }}</p>
+<p><strong>Interés:</strong> {{ interest_service_display }}</p>
+<p><strong>Fecha:</strong> {{ created_at|date:"d/m/Y H:i" }}</p>
+<h3>Mensaje:</h3>
+<div style="background-color: #eee; padding: 15px; border-radius: 5px;">
+    <p>{{ message }}</p>
+</div>
+<p>Este mensaje ya ha sido registrado en la base de datos y se ha enviado un correo de confirmación al usuario.</p>
+<p>Puedes gestionar todos los mensajes desde el panel de administración.</p>
+<p><a href="{{ admin_url }}" class="button">Ir al Panel Admin</a></p>
+{% endblock %} 
