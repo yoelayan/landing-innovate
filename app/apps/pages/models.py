@@ -85,3 +85,17 @@ class FAQ(models.Model):
 
     def __str__(self):
         return self.question
+
+class InstagramReel(models.Model):
+    title = models.CharField(max_length=255)
+    video = models.FileField(upload_to="instagram_reels/")
+    description = models.TextField(blank=True, null=True)
+    posted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Reel de Instagram"
+        verbose_name_plural = "Reels de Instagram"
+        ordering = ["-posted_at"]

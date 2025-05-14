@@ -1,10 +1,8 @@
 from django.urls import path
 from django.views.generic.base import TemplateView
-from .views import HomePageView, suscriptor_process_form
-
+from .views import HomePageView, suscriptor_process_form, reels_view
 
 urlpatterns = [
-    
     path(
         "",
         HomePageView.as_view(),
@@ -14,6 +12,11 @@ urlpatterns = [
         "suscriptor/",
         suscriptor_process_form,
         name="suscriptor",
+    ),
+    path(
+        "reels/",
+        reels_view,
+        name="reels",
     ),
     # SEO routes
     path(

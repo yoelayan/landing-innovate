@@ -1,9 +1,9 @@
 from django.views.generic import TemplateView
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.contrib import messages
 
 # Apps
-from .models import Brand, Suscriptor, SiteImages, Review, FAQ
+from .models import Brand, Suscriptor, SiteImages, Review, FAQ, InstagramReel
 from apps.external_integrations.models import Integration
 from .forms import MessagesForm
 from apps.core.email_utils import (
@@ -13,12 +13,9 @@ from apps.core.email_utils import (
     send_message_admin_notification
 )
 
-"""
-This file is a view controller for multiple pages as a module.
-Here you can override the page view layout.
-Refer to pages/urls.py file for more pages.
-"""
-
+def reels_view(request):
+    reels = InstagramReel.objects.all()
+    return render(request, "reels.html", {"reels": reels})
 
 def suscriptor_process_form(request):
     if request.method == "POST":
@@ -26,9 +23,7 @@ def suscriptor_process_form(request):
         if email:
             try:
                 suscriptor = Suscriptor.objects.create(email=email)
-                # Send confirmation email to the subscriber
                 send_subscription_confirmation(email, request)
-                # Send notification to admin
                 send_subscription_admin_notification(suscriptor, request)
             except Exception:
                 messages.error(request, "Ya te has suscrito antes")
@@ -45,22 +40,12 @@ class HomePageView(TemplateView):
         if form.is_valid():
             messages.success(request, "Mensaje enviado correctamente")
             message_obj = form.save()
-            
-            # Send confirmation email to the user
             send_contact_confirmation(message_obj, request)
-            
-            # Send notification to admin
             send_message_admin_notification(message_obj, request)
         else:
             context = self.get_context_data(**kwargs)
-            context.update(
-                {
-                    "contact_form": form,
-                }
-            )
+            context.update({"contact_form": form})
         return self.get(request, *args, **kwargs)
-
-    
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
@@ -69,64 +54,51 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Conexiones con externos
         integrations_footer = Integration.objects.filter(ubication="footer")
         integrations_head = Integration.objects.filter(ubication="head")
 
         brands = Brand.objects.all()
-        
-        # Format reviews for the template
         reviews_query = Review.objects.all().order_by('-created_at')
-        reviews = []
-        for review in reviews_query:
-            review_data = {
+        reviews = [
+            {
                 'name': review.name if review.name else 'Cliente Anónimo',
                 'rating': review.rating,
                 'comment': review.comment,
                 'image': review.image if review.image else None,
             }
-            reviews.append(review_data)
-            
-        # Get and format FAQs for the template
+            for review in reviews_query
+        ]
+        
         faqs_query = FAQ.objects.all().order_by('created_at')
-        faqs = []
-        for i, faq in enumerate(faqs_query):
-            faq_data = {
-                'id': i + 1,  # For unique IDs in the accordion
+        faqs = [
+            {
+                'id': i + 1,
                 'question': faq.question,
                 'answer': faq.answer,
-                'is_first': i == 0,  # First FAQ will be expanded
+                'is_first': i == 0,
             }
-            faqs.append(faq_data)
-            
-        # If no FAQs exist in the database, provide default ones
+            for i, faq in enumerate(faqs_query)
+        ]
+        
         if not faqs:
             faqs = [
-                {
-                    'id': 1,
-                    'question': '¿Qué servicios de marketing digital ofrecen?',
-                    'answer': 'Ofrecemos una gama completa de servicios de marketing digital que incluyen gestión de redes sociales, posicionamiento SEO, campañas SEM, email marketing, marketing de contenidos y mucho más. Nuestro enfoque se adapta a las necesidades específicas de tu negocio para maximizar resultados.',
-                    'is_first': True,
-                },
-                {
-                    'id': 2,
-                    'question': '¿Cuánto tiempo toma desarrollar un sitio web?',
-                    'answer': 'El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web informativo básico puede estar listo en 2-3 semanas, mientras que un e-commerce o un sitio con funcionalidades avanzadas puede tomar entre 1-3 meses. Tras nuestra consulta inicial, te proporcionaremos un cronograma detallado para tu proyecto específico.',
-                    'is_first': False,
-                },
-                {
-                    'id': 3,
-                    'question': '¿Cómo miden los resultados de sus campañas?',
-                    'answer': 'Utilizamos herramientas analíticas avanzadas para medir el rendimiento de todas nuestras campañas. Dependiendo de tus objetivos, podemos monitorear métricas como tráfico web, conversiones, engagement en redes sociales, posicionamiento en buscadores y ROI. Te proporcionamos informes periódicos detallados para que puedas ver cómo nuestras estrategias están impactando positivamente en tu negocio.',
-                    'is_first': False,
-                },
-                {
-                    'id': 4,
-                    'question': '¿Ofrecen servicios de mantenimiento web?',
-                    'answer': 'Sí, ofrecemos planes de mantenimiento web que incluyen actualizaciones de seguridad, copias de seguridad, correcciones de errores, actualizaciones de contenido y soporte técnico. Estos planes son personalizables según las necesidades de tu sitio y garantizan que tu presencia en línea se mantenga actualizada, segura y funcionando de manera óptima.',
-                    'is_first': False,
-                },
+                {'id': 1, 'question': '¿Qué servicios ofrecen?', 'answer': 'Marketing, desarrollo web y diseño gráfico.', 'is_first': True},
+                {'id': 2, 'question': '¿Cuánto tiempo toma el desarrollo?', 'answer': 'Depende del proyecto, pero suele ser entre 2 semanas y 3 meses.', 'is_first': False},
             ]
+        
+        # Obtener los reels de Instagram
+        reels = InstagramReel.objects.all().order_by('-posted_at')
+
+        context.update({
+            "integrations_footer": integrations_footer,
+            "integrations_head": integrations_head,
+            "brands": brands,
+            "reviews": reviews,
+            "faqs": faqs,
+            "reels": reels,  # Añadir reels al contexto
+        })
+        return context
+
         
         format_brands = [
             {"src": brand.logo.url, "alt": brand.name} for brand in brands
