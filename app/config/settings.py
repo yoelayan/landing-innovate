@@ -109,10 +109,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# use sqlite varaible env
 
-# Use DATABASE_URL if provided (PostgreSQL in production)
-DATABASES = {
-    'default': dj_database_url.config(
+DATABASE_URL = env('DATABASE_URL', default=None)
+
+if not DATABASE_URL:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
         default=env('DATABASE_URL'),
         conn_max_age=env.int('DATABASE_CONN_MAX_AGE', default=60),
         conn_health_checks=True,
