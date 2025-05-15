@@ -87,9 +87,8 @@ class FAQ(models.Model):
         return self.question
 
 class InstagramReel(models.Model):
-    title = models.CharField(max_length=255)
-    video = models.FileField(upload_to="instagram_reels/")
-    description = models.TextField(blank=True, null=True)
+    title = models.CharField(max_length=255)  # Name
+    url = models.URLField(null=True)  # URL instead of uploaded file
     posted_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -64,17 +64,17 @@ class FAQAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at",)
 
 class InstagramReelAdmin(admin.ModelAdmin):
-    list_display = ("title", "posted_at", "video_preview")
-    search_fields = ("title", "description")
+    list_display = ("title", "posted_at", "url_display")
+    search_fields = ("title", "url")
     list_filter = ("posted_at",)
     readonly_fields = ("posted_at",)
 
-    def video_preview(self, obj):
-        if obj.video:
-            return format_html('<video width="100" height="100" controls><source src="{}" type="video/mp4">Tu navegador no soporta el video</video>', obj.video.url)
-        return "No Video"
+    def url_display(self, obj):
+        if obj.url:
+            return format_html('<a href="{}" target="_blank">View Reel</a>', obj.url)
+        return "No URL"
 
-    video_preview.short_description = "Vista previa"
+    url_display.short_description = "Instagram URL"
 
 admin.site.register(Brand, BrandAdmin)
 admin.site.register(Suscriptor, SuscriptorAdmin)

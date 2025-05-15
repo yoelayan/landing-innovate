@@ -1,13 +1,15 @@
 <div class="container">
-    <h2>Instagram Reel</h2>
-    <!-- Crear carousel con la libreria Swiper-->
+    <h2>Instagram Reels</h2>
+    <!-- Crear carousel con la librería Swiper -->
 
-    <!-- Parametrizar la url-->
     <div class="instagram-embed-container">
-        <!-- Método 1: Usando el código de incrustación de Instagram -->
-        <blockquote class="instagram-media" 
-            data-instgrm-permalink="https://www.instagram.com/p/C7ADoUNuvGN/"
-            data-instgrm-version="14">
-        </blockquote>
+        {% for reel in reels %}
+            <blockquote class="instagram-media" 
+                data-instgrm-permalink="{{ reel.video.url }}"
+                data-instgrm-version="14">
+            </blockquote>
+        {% empty %}
+            <p>No hay reels disponibles.</p>
+        {% endfor %}
     </div>
 </div>
