@@ -171,4 +171,40 @@ def send_message_admin_notification(message_obj, request=None):
         'emails/new_message_admin.html',
         context,
         settings.ADMIN_EMAILS
-    ) 
+    )
+
+def send_bulk_email_to_subscribers(subject, message, template_name='emails/newsletter.html', from_email=None):
+    """
+    Send bulk emails to subscribers.
+    
+    Args:
+        subject (str): Email subject
+        message (str): Email message body
+        template_name (str, optional): Path to the email template. Defaults to 'emails/newsletter.html'.
+        from_email (str, optional): Sender email. Defaults to settings.DEFAULT_FROM_EMAIL.
+    
+    Returns:
+        tuple: (number of emails sent successfully, number of errors)
+    """
+    from apps.pages.models import Suscriptor
+    
+    if from_email is None:
+        from_email = settings.DEFAULT_FROM_EMAIL
+    
+    subscribers = Suscriptor.objects.all()
+    success_count = 0
+    error_count = 0
+    
+    for subscriber in subscribers:
+        context = {
+            'email': subscriber.email,
+            'message': message,
+            'unsubscribe_url': settings.SITE_URL + reverse('home'),  # You may want to create an unsubscribe view
+        }
+        
+        if send_templated_email(subject, template_name, context, [subscriber.email], from_email):
+            success_count += 1
+        else:
+            error_count += 1
+    
+    return success_count, error_count 

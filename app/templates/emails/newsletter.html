@@ -1,0 +1,16 @@
+{% extends "emails/base_email.html" %}
+
+{% block email_title %}Noticias de Innova7e{% endblock %}
+
+{% block email_content %}
+<tr>
+    <td align="center" bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
+        {{ message|safe }}
+    </td>
+</tr>
+<tr>
+    <td align="center" bgcolor="#f0f0f0" style="padding: 10px 30px 10px 30px; font-size: 12px; color: #666666;">
+        <p>Si deseas dejar de recibir nuestros correos, <a href="{{ unsubscribe_url }}">haz clic aquí</a>.</p>
+    </td>
+</tr>
+{% endblock %} 
