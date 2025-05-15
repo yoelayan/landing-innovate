@@ -29,15 +29,18 @@ def send_templated_email(subject, template_name, context, recipient_list, from_e
     html_content = render_to_string(template_name, context)
     text_content = strip_tags(html_content)
     
-    email = EmailMultiAlternatives(
-        subject,
-        text_content,
-        from_email,
-        recipient_list
-    )
-    email.attach_alternative(html_content, "text/html")
-    
+    # Use Django's send_mail function which works with any backend including Anymail
     try:
+        # Create message
+        email = EmailMultiAlternatives(
+            subject,
+            text_content,
+            from_email,
+            recipient_list
+        )
+        email.attach_alternative(html_content, "text/html")
+        
+        # Send with the configured backend (now Google OAuth)
         return email.send() > 0
     except Exception as e:
         logging.error(f"Error sending email: {e}")

@@ -28,6 +28,10 @@ env = environ.Env(
     EMAIL_HOST_USER=(str, ''),
     EMAIL_HOST_PASSWORD=(str, ''),
     ADMIN_EMAILS=(list, []),
+    GOOGLE_MAIL_API_KEY=(str, ''),
+    GOOGLE_MAIL_CLIENT_ID=(str, ''),
+    GOOGLE_MAIL_CLIENT_SECRET=(str, ''),
+    GOOGLE_MAIL_REFRESH_TOKEN=(str, ''),
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -66,6 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'anymail',
 ] + LOCAL_APPS
 
 # Sites framework
@@ -170,13 +175,17 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = 'anymail.backends.google_mail.EmailBackend'
+
+# Gmail OAuth2 settings
+ANYMAIL = {
+    "GOOGLE_MAIL_API_KEY": env('GOOGLE_MAIL_API_KEY', default=''),
+    "GOOGLE_MAIL_CLIENT_ID": env('GOOGLE_MAIL_CLIENT_ID', default=''),
+    "GOOGLE_MAIL_CLIENT_SECRET": env('GOOGLE_MAIL_CLIENT_SECRET', default=''),
+    "GOOGLE_MAIL_REFRESH_TOKEN": env('GOOGLE_MAIL_REFRESH_TOKEN', default=''),
+}
+
+DEFAULT_FROM_EMAIL = 'holainnovate@innova7e.com'
 
 # Admin emails to receive notifications
 ADMIN_EMAILS = env('ADMIN_EMAILS')
