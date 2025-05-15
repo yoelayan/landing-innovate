@@ -7,6 +7,7 @@ from django.utils.html import strip_tags
 from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
+import logging
 
 def send_templated_email(subject, template_name, context, recipient_list, from_email=None):
     """
@@ -39,7 +40,7 @@ def send_templated_email(subject, template_name, context, recipient_list, from_e
     try:
         return email.send() > 0
     except Exception as e:
-        print(f"Error sending email: {e}")
+        logging.error(f"Error sending email: {e}")
         return False
 
 def send_subscription_confirmation(email, request=None):
@@ -201,10 +202,11 @@ def send_bulk_email_to_subscribers(subject, message, template_name='emails/newsl
             'message': message,
             'unsubscribe_url': settings.SITE_URL + reverse('home'),  # You may want to create an unsubscribe view
         }
-        
+        logging.info(f"Sending email to {subscriber.email}")
         if send_templated_email(subject, template_name, context, [subscriber.email], from_email):
             success_count += 1
         else:
             error_count += 1
+            logging.error(f"Error sending email to {subscriber.email}")
     
     return success_count, error_count 
