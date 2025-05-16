@@ -1,16 +1,81 @@
-<div class="container">
-    <h2>Instagram Reels</h2>
-    <!-- Crear carousel con la librería Swiper -->
-     <!-- Titulo: Una muestra de nuestro trabajo-->
+{% load static %}
+<!-- Add the link to your CSS file -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!-- Agregar Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
 
-    <div class="">
-        {% for reel in reels %}
-            <blockquote class="instagram-media" 
-                data-instgrm-permalink="{{ reel.url }}"
-                data-instgrm-version="14">
-            </blockquote>
-        {% empty %}
-            <p>No hay reels disponibles.</p>
-        {% endfor %}
+<div class="container py-5">
+    <h2 class="mb-4">{{ title }}</h2>
+    
+    <!-- Swiper container con controles de navegación -->
+    <div class="swiper instagram-swiper">
+        <div class="swiper-wrapper">
+            {% for reel in reels %}
+                <div class="swiper-slide">
+                    <div class="instagram-embed-container">
+                        <blockquote class="instagram-media" 
+                            data-instgrm-permalink="{{ reel.url }}"
+                            data-instgrm-version="14">
+                        </blockquote>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="swiper-slide">
+                    <p>No hay reels disponibles.</p>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Agregar controles de navegación -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
     </div>
 </div>
+
+<!-- Cargar el script de Instagram -->
+<script async src="//www.instagram.com/embed.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<!-- Swiper Initialization Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar Instagram embeds
+    if (window.instgrm) {
+      window.instgrm.Embeds.process();
+    }
+    
+    // Inicializar Swiper después de que los embeds de Instagram se hayan cargado
+    setTimeout(function() {
+      const swiperInstance = new Swiper('.instagram-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          }
+        }
+      });
+    }, 1000); // Dar tiempo para que se carguen los embeds
+  });
+</script>

@@ -334,6 +334,7 @@ class HomePageView(TemplateView):
                 "reviews": reviews,
                 "faqs": faqs,
                 "reels": reels,
+                "title": "Una muestra de nuestro trabajo",
             }
         )
 
