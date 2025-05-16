@@ -13,10 +13,6 @@ from apps.core.email_utils import (
     send_message_admin_notification
 )
 
-def reels_view(request):
-    reels = InstagramReel.objects.all()
-    return render(request, "reels.html", {"reels": reels})
-
 def suscriptor_process_form(request):
     if request.method == "POST":
         email = request.POST.get("email")
@@ -56,6 +52,7 @@ class HomePageView(TemplateView):
 
         integrations_footer = Integration.objects.filter(ubication="footer")
         integrations_head = Integration.objects.filter(ubication="head")
+        reels = InstagramReel.objects.all().order_by('-posted_at')
 
         brands = Brand.objects.all()
         reviews_query = Review.objects.all().order_by('-created_at')
@@ -87,18 +84,7 @@ class HomePageView(TemplateView):
             ]
         
         # Obtener los reels de Instagram
-        reels = InstagramReel.objects.all().order_by('-posted_at')
-
-        context.update({
-            "integrations_footer": integrations_footer,
-            "integrations_head": integrations_head,
-            "brands": brands,
-            "reviews": reviews,
-            "faqs": faqs,
-            "reels": reels,  # Añadir reels al contexto
-        })
-        return context
-
+        
         
         format_brands = [
             {"src": brand.logo.url, "alt": brand.name} for brand in brands
@@ -347,6 +333,7 @@ class HomePageView(TemplateView):
                 "integrations_head": integrations_head,
                 "reviews": reviews,
                 "faqs": faqs,
+                "reels": reels,
             }
         )
 

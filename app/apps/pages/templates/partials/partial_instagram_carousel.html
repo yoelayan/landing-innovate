@@ -1,11 +1,12 @@
 <div class="container">
     <h2>Instagram Reels</h2>
     <!-- Crear carousel con la librería Swiper -->
+     <!-- Titulo: Una muestra de nuestro trabajo-->
 
-    <div class="instagram-embed-container">
+    <div class="">
         {% for reel in reels %}
             <blockquote class="instagram-media" 
-                data-instgrm-permalink="{{ reel.video.url }}"
+                data-instgrm-permalink="{{ reel.url }}"
                 data-instgrm-version="14">
             </blockquote>
         {% empty %}

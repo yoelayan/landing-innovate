@@ -85,6 +85,7 @@ class FAQ(models.Model):
 
     def __str__(self):
         return self.question
+    
 
 class InstagramReel(models.Model):
     title = models.CharField(max_length=255)  # Name
