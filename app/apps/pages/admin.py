@@ -31,8 +31,11 @@ class SuscriptorAdmin(admin.ModelAdmin):
 
     def send_email_to_subscribers(self, request, queryset):
         """Admin action to send emails to selected subscribers"""
+        print(request.POST)
         if 'send' in request.POST:
+            print("Sending email to subscribers")
             form = BulkEmailForm(request.POST)
+            print(form.is_valid())
             if form.is_valid():
                 subject = form.cleaned_data['subject']
                 message = form.cleaned_data['message']
@@ -43,6 +46,7 @@ class SuscriptorAdmin(admin.ModelAdmin):
                 # Send emails
                 success_count = 0
                 error_count = 0
+                print(recipients)
                 
                 for email in recipients:
                     # We're using the bulk email function but sending only to selected subscribers
@@ -55,8 +59,10 @@ class SuscriptorAdmin(admin.ModelAdmin):
                     
                     if send_templated_email(subject, 'emails/newsletter.html', context, [email]):
                         success_count += 1
+                        print(f"Email sent to {email}")
                     else:
                         error_count += 1
+                        print(f"Error sending email to {email}")
                 
                 self.message_user(
                     request, 

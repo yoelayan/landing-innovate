@@ -1,17 +1,96 @@
 """
-Email utilities for sending emails from the application.
+Email utilities for sending emails from the application using Google API.
 """
-from django.core.mail import send_mail, EmailMultiAlternatives
+import base64
+import logging
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
-import logging
+
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+
+def get_gmail_service():
+    """
+    Create and return a Gmail API service
+    
+    Returns:
+        service: Gmail API service object or None if error
+    """
+    SCOPES = ['https://www.googleapis.com/auth/gmail.send']
+    
+    try:
+        # Try to get credentials from the database first
+        from apps.external_integrations.models import GoogleAPIAuth
+        auth_obj = GoogleAPIAuth.objects.filter(authorized=True, refresh_token__isnull=False).first()
+        
+        # Create credentials
+        creds = None
+        
+        if auth_obj and auth_obj.is_active():
+            # Create credentials from the database entry
+            creds = Credentials(
+                token=auth_obj.access_token,
+                refresh_token=auth_obj.refresh_token,
+                token_uri="https://oauth2.googleapis.com/token",
+                client_id=auth_obj.client_id,
+                client_secret=auth_obj.client_secret,
+                scopes=SCOPES
+            )
+            
+            # Refresh the credentials if needed
+            if creds and creds.expired and creds.refresh_token:
+                creds.refresh(Request())
+                # Update the token in the database
+                auth_obj.access_token = creds.token
+                if creds.expiry:
+                    auth_obj.token_expiry = creds.expiry
+                auth_obj.save(update_fields=['access_token', 'token_expiry'])
+        
+        # If we don't have valid credentials from the database, fall back to settings
+        if not creds or not creds.valid:
+            # If we have a refresh token in settings, try to use it
+            if settings.GOOGLE_MAIL_REFRESH_TOKEN:
+                creds = Credentials(
+                    token=None,
+                    refresh_token=settings.GOOGLE_MAIL_REFRESH_TOKEN,
+                    token_uri="https://oauth2.googleapis.com/token",
+                    client_id=settings.GOOGLE_MAIL_CLIENT_ID,
+                    client_secret=settings.GOOGLE_MAIL_CLIENT_SECRET,
+                    scopes=SCOPES
+                )
+                
+                # Refresh the credentials if needed
+                if creds and creds.refresh_token:
+                    creds.refresh(Request())
+        
+        # If we still don't have valid credentials, we can't proceed
+        if not creds or not creds.valid:
+            logging.error("No valid Google credentials available")
+            return None
+        
+        # Update last used timestamp if using database credentials
+        if auth_obj and auth_obj.is_active():
+            auth_obj.use_token()
+        
+        # Build the service
+        service = build('gmail', 'v1', credentials=creds)
+        return service
+    except Exception as e:
+        logging.error(f"Error creating Gmail service: {e}")
+        return None
 
 def send_templated_email(subject, template_name, context, recipient_list, from_email=None):
     """
-    Send an email using a template.
+    Send an email using a template via Gmail API.
     
     Args:
         subject (str): Email subject
@@ -29,19 +108,37 @@ def send_templated_email(subject, template_name, context, recipient_list, from_e
     html_content = render_to_string(template_name, context)
     text_content = strip_tags(html_content)
     
-    # Use Django's send_mail function which works with any backend including Anymail
     try:
-        # Create message
-        email = EmailMultiAlternatives(
-            subject,
-            text_content,
-            from_email,
-            recipient_list
-        )
-        email.attach_alternative(html_content, "text/html")
+        service = get_gmail_service()
+        if not service:
+            return False
         
-        # Send with the configured backend (now Google OAuth)
-        return email.send() > 0
+        for recipient in recipient_list:
+            # Create message
+            message = MIMEMultipart('alternative')
+            message['to'] = recipient
+            message['from'] = from_email
+            message['subject'] = subject
+            
+            # Attach parts
+            part1 = MIMEText(text_content, 'plain')
+            part2 = MIMEText(html_content, 'html')
+            message.attach(part1)
+            message.attach(part2)
+            
+            # Encode and send
+            encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
+            
+            try:
+                service.users().messages().send(
+                    userId='me',
+                    body={'raw': encoded_message}
+                ).execute()
+            except HttpError as error:
+                logging.error(f'Error sending email to {recipient}: {error}')
+                return False
+        
+        return True
     except Exception as e:
         logging.error(f"Error sending email: {e}")
         return False
